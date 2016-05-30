@@ -1,0 +1,24 @@
+﻿@import (reference) "sizes.less";
+@import (reference) "color.less";
+
+@pad: @body-pad-b + @footer-pad-t + @footer-pad-t;
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: @pad;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: @pad;
+    padding-top:@footer-pad-t;
+    padding-bottom:@footer-pad-b;
+    background-color: @color-light-gray;
+}
