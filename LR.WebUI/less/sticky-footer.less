@@ -1,0 +1,21 @@
+﻿@import (reference) "sizes.less";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: @footer-pad-top + @footer-pad-bottom + @footer-h;
+}
+
+.footer {
+    padding-top: @footer-pad-top;
+    padding-bottom: @footer-pad-bottom;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: @footer-h;
+    background-color: #f5f5f5;
+}

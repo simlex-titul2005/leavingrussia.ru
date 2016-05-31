@@ -1,1 +1,0 @@
-﻿/// <reference path="../wwwroot/lib/jquery/dist/jquery.min.js" />
