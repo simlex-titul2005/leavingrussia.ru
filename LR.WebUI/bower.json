@@ -1,7 +1,8 @@
 {
-  "name": "ASP.NET",
-  "private": true,
+	"name": "asp.net",
+	"private": true,
   "dependencies": {
-    "bootstrap": "3.3.6"
+    "bootstrap": "3.3.6",
+    "font-awesome": "4.6.3"
   }
 }

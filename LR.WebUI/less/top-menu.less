@@ -1,0 +1,28 @@
+﻿@import (reference) "../bower_components/bootstrap/less/variables.less";
+@import (reference) "colors.less";
+@import (reference) "sizes.less";
+
+.top-menu{
+    background-color:@color-black-1;
+    padding:5px @def-pad;
+}
+
+.top-menu a{
+    color:@color-white;
+    font-family: 'Cuprum', sans-serif;
+    text-transform:uppercase;
+    transition:all 0.3s;
+    text-decoration:none;
+}
+
+.top-menu a:hover{
+    color:@color-green-1;
+}
+
+.top-menu .menu-left ul > li{
+    padding-right:@def-pad + 5px;
+}
+
+.top-menu .menu-right{
+    text-align:right;
+}

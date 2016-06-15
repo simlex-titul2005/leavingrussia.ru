@@ -1,8 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using SX.Web.Core.MvcControllers;
+using System.Web.Mvc;
 
 namespace LR.WebUI.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : SxBaseMvcController
     {
         [HttpGet]
         public ActionResult Index()

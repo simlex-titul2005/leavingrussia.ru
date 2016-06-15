@@ -1,86 +1,89 @@
-﻿/// <binding Clean='clean' />
-"use strict";
-
-var promise = require('es6-promise'),
+﻿var promise = require('es6-promise'),
     gulp = require('gulp'),
+    watch = require('gulp-watch'),
     del = require('del'),
     concat = require('gulp-concat'),
-    autoprefixer = require('gulp-autoprefixer'),
-    cleanCSS = require('gulp-clean-css'),
-    watch = require('gulp-watch'),
-    merge = require('merge-stream'),
-    less = require('gulp-less'),
     uglify = require('gulp-uglify'),
-    order = require('gulp-order');
+    merge = require('merge-stream'),
+    order = require('gulp-order'),
+    less = require('gulp-less'),
+    cleanCSS = require('gulp-clean-css'),
+    autoprefixer = require('gulp-autoprefixer');
 
-var paths = {
-    webroot: 'dist/',
-    libpath: 'bower_components/'
-};
-
-//clear all client side site files
+//clear all files
 function clear() {
     del([
-        paths.webroot + 'css/**/*.css',
-        paths.webroot + 'js/**/*.js',
+        'content/dist/css/**/*.css',
+        'content/dist/js/**/*.js',
+        'content/dist/fonts/**/*'
     ]);
 }
 
-//create css
+//create css files
 function createCss() {
     var lessStream = gulp.src([
        'less/site.less',
-       'less/sticky-footer.less'
+       'less/top-menu.less'
     ])
         .pipe(less())
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
-        .pipe(concat('siteCss.css'));
+        .pipe(concat('sitecss.css'));
 
     var cssStream = gulp.src([
-        paths.libpath + 'bootstrap/dist/css/bootstrap.min.css'
+        'bower_components/bootstrap/dist/css/bootstrap.min.css',
+        'bower_components/font-awesome/css/font-awesome.min.css'
     ])
         .pipe(concat('css.css'));
 
     var mergedStream = merge(lessStream, cssStream)
         .pipe(order([
             'css.css',
-            'siteCss.css'
+            'sitecss.css'
         ]))
-        .pipe(concat('site.min.css'))
-        .pipe(gulp.dest(paths.webroot + 'css'));
+            .pipe(concat('site.min.css'))
+            .pipe(gulp.dest('content/dist/css'));
 }
 
-//create css
+//create fonts
+function createFonts() {
+    gulp.src([
+        'bower_components/font-awesome/fonts/**/*'
+    ])
+        .pipe(gulp.dest('content/dist/fonts'));
+}
+
+//create js files
 function createJs() {
     var js = gulp.src([
-        paths.libpath + 'jquery/dist/jquery.min.js',
-        paths.libpath + 'bootstrap/dist/js/bootstrap.min.js'
+        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/bootstrap/dist/js/bootstrap.min.js'
     ])
         .pipe(concat('js.js'));
 
-    var siteJs = gulp.src([
-        'js/site.js'
+    var sitejs = gulp.src([
+        'scripts/site.js'
     ])
         .pipe(uglify())
-        .pipe(concat('siteJs.js'));
+        .pipe(concat('sitejs.js'));
 
-    var mergedStream = merge(js, siteJs)
+    var mergedStream = merge(js, sitejs)
         .pipe(order([
             'js.js',
-            'siteJs.js'
+            'sitejs.js'
         ]))
-        .pipe(concat('site.min.js'))
-        .pipe(gulp.dest(paths.webroot + 'js'));
+            .pipe(concat('site.min.js'))
+            .pipe(gulp.dest('content/dist/js'));
 }
 
 gulp.task('watch', function (cb) {
     watch([
         'less/**/*.less',
-        'js/**/*.js'
+        'scripts/**/*.js'
     ], function () {
         clear();
         createCss();
+        createFonts();
         createJs();
     });
 });

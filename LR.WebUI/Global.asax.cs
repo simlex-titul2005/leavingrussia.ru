@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using SX.Web.Core.MvcConfig;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -12,7 +9,7 @@ namespace LR.WebUI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            SxMvcRouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }
