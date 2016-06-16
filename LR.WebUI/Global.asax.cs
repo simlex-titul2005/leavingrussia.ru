@@ -1,15 +1,15 @@
-﻿using SX.Web.Core.MvcConfig;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿using SX.WebCore.MvcApplication;
 
 namespace LR.WebUI
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : SxApplication<LR.WebCoreExtantions.DbContext>
     {
-        protected void Application_Start()
-        {
-            AreaRegistration.RegisterAllAreas();
-            SxMvcRouteConfig.RegisterRoutes(RouteTable.Routes);
-        }
+        public MvcApplication() : base(
+            WebApiConfig.Register,
+            RouteConfig.RegisterRoutes,
+            AutoMapperConfig.MapperConfigurationInstance,
+            isLogRequests: true
+            )
+        { }
     }
 }
