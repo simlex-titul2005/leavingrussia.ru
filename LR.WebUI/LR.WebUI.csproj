@@ -160,6 +160,7 @@
     <Content Include="content\dist\css\site.min.css" />
     <Content Include="content\dist\fonts\fontawesome-webfont.svg" />
     <Content Include="content\dist\i\bg.jpg" />
+    <Content Include="content\dist\i\logo.png" />
     <Content Include="content\dist\js\site.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
