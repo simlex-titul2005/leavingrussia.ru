@@ -1,0 +1,91 @@
+﻿@import (reference) "colors.less";
+@import (reference) "sizes.less";
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=cyrillic';
+@import 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=cyrillic';
+
+a:not(.btn), a:link:not(.btn), a:active:not(.btn), a:visited:not(.btn), a:focus:not(.btn), button:not(.btn), button:link:not(.btn), button:visited:not(.btn), button:active:not(.btn), button:focus:not(.btn), input:focus:not(.btn) {
+    color: inherit;
+}
+
+ul {
+    margin: 0;
+}
+
+html, body, .wrapper {
+    height: 100%;
+}
+
+body {
+    color: @color-black;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-image: url('/content/static/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.wrapper {
+    max-width: 1230px;
+    margin: 0 auto;
+    background-color: @color-white;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+
+//header
+.top-menu {
+    background-color: @color-black;
+    color: @color-white;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.top-menu a {
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.top-menu a:hover {
+    color: @color-green-muted;
+}
+
+.top-body {
+    padding: 20px 0;
+}
+
+//navbar
+.navbar, .navbar-default{
+    border-radius:0;
+}
+
+.navbar-brand{
+    height:60px;
+    padding-top: 20px;
+}
+
+.navbar-nav > li > a{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.navbar-default .navbar-nav > li > a {
+    transition:all .5s;
+    text-transform:uppercase;
+    color:@color-black;
+    font-weight: 400;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color:@color-green-muted;
+}
+
+.navbar-default .navbar-nav > .active > a{
+    color:@color-green-muted;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{
+    background:none;
+    box-shadow:none;
+}

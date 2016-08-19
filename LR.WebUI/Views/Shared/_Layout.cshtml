@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@(ViewBag.Title == null ? "leavingrussia.ru" : ViewBag.Title + " | leavingrussia.ru")</title>
+
+    <link href="~/content/dist/css/site.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        @Html.Partial("_Navbar")
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/content/dist/js/site.min.js"></script>
+</body>
+</html>
