@@ -162,6 +162,13 @@
     <Content Include="content\dist\js\site.min.js" />
     <Content Include="content\static\bg.jpg" />
     <Content Include="content\static\logo.png" />
+    <Content Include="content\static\temp\13712292_907698102687005_2080260736_n.jpg" />
+    <Content Include="content\static\temp\about-widget.jpg" />
+    <Content Include="content\static\temp\airplane-crash-780x516.jpg" />
+    <Content Include="content\static\temp\first-post.jpg" />
+    <Content Include="content\static\temp\forest-585x390.jpg" />
+    <Content Include="content\static\temp\iceland-585x390.jpg" />
+    <Content Include="content\static\temp\iceland2-585x390.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -172,6 +179,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +201,9 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="less\colors.less" />
     <Content Include="less\sizes.less" />
+    <Content Include="Views\Shared\_AboutUs.cshtml" />
+    <Content Include="Views\Shared\_JoinUs.cshtml" />
+    <Content Include="Views\Pictures\_Last.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

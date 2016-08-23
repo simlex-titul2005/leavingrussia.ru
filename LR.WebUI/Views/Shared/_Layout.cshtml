@@ -7,6 +7,7 @@
     <title>@(ViewBag.Title == null ? "leavingrussia.ru" : ViewBag.Title + " | leavingrussia.ru")</title>
 
     <link href="~/content/dist/css/site.min.css" rel="stylesheet" />
+    @RenderSection("styles", false)
 </head>
 <body>
     <div class="wrapper">
@@ -17,5 +18,6 @@
         </div>
     </div>
     <script src="~/content/dist/js/site.min.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

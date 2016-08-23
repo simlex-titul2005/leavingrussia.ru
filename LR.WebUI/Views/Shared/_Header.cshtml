@@ -6,13 +6,19 @@
                 <div class="col-md-6">
                     <ul class="list-unstyled list-inline top-menu__menu-left">
                         <li>
-                            <a href="#">sign in/join</a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <a href="#">Выход</a>
+
+                            }
+                            else
+                            {
+                                <a href="#">Вход в аккаунт</a>
+                            }
                         </li>
                         <li>
-                            <a href="#">Europe</a>
-                        </li>
-                        <li>
-                            <a href="#">Pages</a>
+                            <a href="#">Регистрация</a>
                         </li>
                     </ul>
                 </div>
