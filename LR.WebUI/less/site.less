@@ -674,21 +674,24 @@ aside {
     margin-bottom: @def-pad;
 }
 
+.last-pictures__box{
+    margin:0 -5px;
+
+}
+
 .last-pictures ul {
     padding: 0;
     margin: 0;
     list-style: none;
-    margin-left: -5px;
-    display:inline-block;
-    width:100%;
+    font-size: 0;
 }
 
 .last-pictures ul > li {
-    float: left;
+    display: inline-block;
     width: 33.33%;
     position: relative;
     padding-bottom: 33.33%;
-    overflow: hidden;
+    vertical-align:top;
     @media (max-width: @screen-xs-max) {
         width:50%;
         padding-bottom: 50%;
@@ -720,8 +723,6 @@ aside {
 }
 
 .last-pictures__img {
-    height: 100%;
-    width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -733,8 +734,40 @@ aside {
     transition:all .5s;
 }
 
+.last-pictures__img::before, .last-pictures__img::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    transform: scale(0,1);
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+.last-pictures__img::after{
+    transform: scale(1,0);
+    opacity:0;
+}
+
+.last-pictures__img::before {
+    
+    border-top: 1px solid @color-white;
+    border-bottom: 1px solid @color-white;
+}
+
+.last-pictures__img::after {
+    border-left: 1px solid @color-white;
+    border-right: 1px solid @color-white;
+}
+
 .last-pictures__img:hover{
     opacity:.7;
+}
+
+.last-pictures__img:hover::before, .last-pictures__img:hover::after{
+    transform: scale(1);
+    opacity:1;
 }
 
 //last-materials
