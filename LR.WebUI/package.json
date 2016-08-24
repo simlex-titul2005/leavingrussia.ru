@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-	"name": "LR.WebUI",
-	"private": true,
+  "name": "LR.WebUI",
+  "private": true,
   "devDependencies": {
     "gulp": "3.9.1",
     "es6-promise": "3.2.1",

@@ -5,6 +5,8 @@ namespace LR.WebUI
 {
     public class RouteConfig
     {
+        private static readonly string[] _dafaultNamespaces = new string[] { "LR.WebUI.Controllers" };
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.LowercaseUrls = true;
@@ -14,7 +16,8 @@ namespace LR.WebUI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, area="" },
+                namespaces: _dafaultNamespaces
             );
         }
     }

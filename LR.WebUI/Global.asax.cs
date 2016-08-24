@@ -1,6 +1,8 @@
 ﻿using LR.WebUI.Infrastructure;
 using SX.WebCore.MvcApplication;
 using System;
+using System.Configuration;
+using System.Web.Mvc;
 
 namespace LR.WebUI
 {
@@ -12,7 +14,7 @@ namespace LR.WebUI
                 WebApiConfigRegister = WebApiConfig.Register,
                 RegisterRoutes = RouteConfig.RegisterRoutes,
                 MapperConfiguration = AutoMapperConfig.MapperConfigurationInstance,
-                LoggingRequest = false
+                LoggingRequest = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingRequest"])
             };
 
             base.Application_Start(sender, args);

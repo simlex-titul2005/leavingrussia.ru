@@ -154,12 +154,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\content\dist\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Areas\Admin\content\dist\css\lightbox.min.css" />
+    <Content Include="Areas\Admin\content\dist\css\morris.css" />
+    <Content Include="Areas\Admin\content\dist\css\site.min.css" />
+    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\content\dist\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\content\dist\images\close.png" />
+    <Content Include="Areas\Admin\content\dist\images\loading.gif" />
+    <Content Include="Areas\Admin\content\dist\images\next.png" />
+    <Content Include="Areas\Admin\content\dist\images\prev.png" />
+    <Content Include="Areas\Admin\content\dist\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\jquery.signalR.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\jquery.validate.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\lightbox.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\moment-with-locales.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\morris.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\raphael.min.js" />
+    <Content Include="Areas\Admin\content\dist\js\site.min.js" />
     <Content Include="content\dist\css\site.min.css" />
     <Content Include="content\dist\fonts\fontawesome-webfont.svg" />
     <Content Include="content\dist\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="content\dist\js\jquery.validate.min.js" />
     <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
+    <Content Include="content\Site.css" />
     <Content Include="content\static\bg.jpg" />
     <Content Include="content\static\logo.png" />
     <Content Include="content\static\temp\13712292_907698102687005_2080260736_n.jpg" />
@@ -172,6 +197,7 @@
     <Content Include="content\static\temp\lakekayak-585x390.jpg" />
     <Content Include="content\static\temp\redwoods-585x390.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\site.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +205,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SiteSettingsController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -215,6 +245,11 @@
     <Content Include="Views\Pictures\_Last.cshtml" />
     <Content Include="Views\Articles\_Last.cshtml" />
     <Content Include="Views\Articles\_Categories.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -223,6 +258,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\SiteSettings\" />
     <Folder Include="Models\" />
     <Folder Include="Views\News\" />
   </ItemGroup>
