@@ -578,6 +578,10 @@ aside {
     margin:@def-pad 0 @def-pad*2;
 }
 
+.home-material hr:last-child{
+    display:none;
+}
+
 //green-header
 .green-header {
     text-align: center;
@@ -676,6 +680,8 @@ aside {
     margin: 0;
     list-style: none;
     margin-left: -5px;
+    display:inline-block;
+    width:100%;
 }
 
 .last-pictures ul > li {
@@ -725,4 +731,97 @@ aside {
     right: 5px;
     bottom: 5px;
     left: 5px;
+}
+
+//last-materials
+.last-materials__list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.last-materials__item{
+    display:inline-block;
+    width:100%;
+}
+
+.last-materials__item:last-child hr{
+    display:none;
+}
+
+.last-materials__item-img{
+    width:120px;
+    height:80px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    transition:all .5s;
+    position:relative;
+    float:left;
+}
+
+.last-materials__item-img > a{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    outline:none;
+}
+
+.last-materials__item-img:hover{
+    opacity:.7;
+}
+
+.last-materials__item-content{
+    margin-left:140px;
+    min-height:80px;
+}
+
+.last-materials__item-title{
+    margin:0;
+}
+
+.last-materials__item-title a{
+    text-decoration:none;
+    transition:all .5s;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight:700;
+    outline:none;
+}
+
+.last-materials__item-title a:hover{
+    color:@color-green-muted;
+}
+
+//categories
+.categories__list, .categories__list ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.categories__list ul{
+    padding-left:@def-pad;
+}
+
+.categories__list a::before{
+    content: "\f105";
+font-family: FontAwesome;
+display: inline-block;
+margin-right: 10px;
+font-size: 90%;
+}
+
+.categories__list a{
+    display:block;
+    border-bottom:1px solid @color-gray-light;
+    line-height:40px;
+    transition:all .5s;
+    text-decoration:none;
+}
+
+.categories__list a:hover{
+    color:@color-green-muted;
+    text-decoration:underline;
 }

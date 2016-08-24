@@ -137,9 +137,9 @@
     </div>
     <div class="block__right">
         @Html.Partial("_AboutUs")
-        <br />
         @Html.Partial("_JoinUs")
-        <br />
         @Html.Action("Last", "Pictures", new { amount = 10 })
+        @Html.Action("Last", "Articles", new { amount = 5 })
+        @Html.Action("Categories", "Articles")
     </div>
 </div>

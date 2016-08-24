@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace LR.WebUI.Controllers
 {
-    public class PicturesController : SxPicturesController<DbContext>
+    public sealed class PicturesController : SxPicturesController<DbContext>
     {
         public ActionResult Last(int amount = 9)
         {
