@@ -1,0 +1,50 @@
+﻿@model VMArticle[]
+@{
+    int boxesCount = ViewBag.BoxesCount;
+    VMArticle item = null;
+}
+
+@if (Model.Any())
+{
+    <div class="container">
+        <div class="gallery">
+            @for (int i = 0; i < boxesCount; i++)
+            {
+                var data = Model.Skip(i * boxesCount).Take(boxesCount).ToArray();
+                if (data.Any() && data.Length == 3)
+                {
+                    <ul class="gallery__wrapper @(i==0?"active":null)" data-index="@(i+1)">
+                        @for (int y = 0; y < data.Length; y++)
+                        {
+                            item = data[y];
+
+                            var i1 = i == 0 && y == 0 ? "/content/static/temp/airplane-crash-780x516.jpg" : y == 1 ? "/content/static/temp/iceland-585x390.jpg" : "/content/static/temp/iceland2-585x390.jpg";
+                            var i2 = i == 1 && y == 0 ? "/content/static/temp/iceland-585x390.jpg" : y == 1 ? "/content/static/temp/airplane-crash-780x516.jpg" : "/content/static/temp/iceland2-585x390.jpg";
+                            var i3 = i == 2 && y == 0 ? "/content/static/temp/iceland2-585x390.jpg" : y == 1 ? "/content/static/temp/iceland-585x390.jpg" : "/content/static/temp/airplane-crash-780x516.jpg";
+
+                            <li class="gallery__item gallery__item-@(y+1)">
+                                <div class="gallery__img" style="background-image:url('@(i==0?i1:i==1?i2:i3)')">
+                                    <a href="@item.GetUrl(Url)" class="gallery__link"></a>
+                                </div>
+                                <div class="gallery__item-info">
+                                    <div class="gallery__item-title"><a href="@item.GetUrl(Url)">@item.Title</a></div>
+                                    <div class="gallery__item-meta">
+                                        @if (item.User != null)
+                                        {
+                                            <span class="author">@(item.User.NikName)</span>
+                                        }
+                                        <span class="date">@item.DateOfPublication.ToString("MMMM d, yyyy")</span>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            }
+            <ul class="gallery__nav">
+                <li><a href="#" class="gallery__nav-btn prev"><i class="fa fa-angle-left"></i></a></li>
+                <li><a href="#" class="gallery__nav-btn next"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+        </div>
+    </div>
+}

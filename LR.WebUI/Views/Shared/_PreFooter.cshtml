@@ -1,0 +1,31 @@
+﻿<div class="pre-footer">
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="header-d-arrow">
+                    <span class="header-d-arrow__span">Сейчас читают</span>
+                </h4>
+                <aside>
+                    @Html.Action("ReadNow", "Articles")
+                </aside>
+            </div>
+            <div class="col-md-4">
+                <h4 class="header-d-arrow">
+                    <span class="header-d-arrow__span">Популярные статьи</span>
+                </h4>
+                <aside>
+                    @Html.Action("Popular", "Articles", new { amount = 3 })
+                </aside>
+            </div>
+            <div class="col-md-4">
+                <h4 class="header-d-arrow">
+                    <span class="header-d-arrow__span">Рассылка</span>
+                </h4>
+                <aside>
+                    @Html.Action("Subscribe", "Articles")
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

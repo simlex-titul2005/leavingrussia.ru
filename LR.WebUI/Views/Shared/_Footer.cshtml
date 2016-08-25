@@ -1,0 +1,18 @@
+﻿@{ 
+    var date = DateTime.Now;
+    var year = date.Year == 2016 ? "2016" : "2016 - " + date.Year;
+}
+<footer>
+    @Html.Action("Best", "Pictures")
+    @Html.Partial("_SocialGroups")
+
+    <div class="container">
+        <div class="text-center">
+            <div class="post-footer">
+                <em>©@(year) - PenciDesign. All Right Reserved. Designed and Developed by PenciDesign</em><br />
+                <em><small>Разработка и поддержка <a href="mailto:simlex.dev.2014@gmail.com">simlex</a></small></em><br />
+                <a class="btn-top-top" href="#"><i class="fa fa-angle-up"></i>В начало</a>
+            </div>
+        </div>
+    </div>
+</footer>

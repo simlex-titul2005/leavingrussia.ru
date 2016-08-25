@@ -7,10 +7,18 @@ namespace LR.WebUI.Controllers
 {
     public sealed class PicturesController : SxPicturesController<DbContext>
     {
-        public ActionResult Last(int amount = 9)
+        [ChildActionOnly]
+        public PartialViewResult Last(int amount = 9)
         {
             var data = new SxVMPicture[0];
             return PartialView("_Last", data);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult Best()
+        {
+            var data = new SxVMPicture[0];
+            return PartialView("_Best", data);
         }
     }
 }

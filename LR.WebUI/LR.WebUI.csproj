@@ -184,10 +184,11 @@
     <Content Include="content\dist\js\jquery.validate.min.js" />
     <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
-    <Content Include="content\Site.css" />
     <Content Include="content\static\bg.jpg" />
     <Content Include="content\static\logo.png" />
     <Content Include="content\static\temp\13712292_907698102687005_2080260736_n.jpg" />
+    <Content Include="content\static\temp\13731188_1412849788741985_989071069_n.jpg" />
+    <Content Include="content\static\temp\13741072_1134383363267451_809617021_n.jpg" />
     <Content Include="content\static\temp\about-widget.jpg" />
     <Content Include="content\static\temp\airplane-crash-780x516.jpg" />
     <Content Include="content\static\temp\first-post.jpg" />
@@ -195,6 +196,7 @@
     <Content Include="content\static\temp\iceland-585x390.jpg" />
     <Content Include="content\static\temp\iceland2-585x390.jpg" />
     <Content Include="content\static\temp\lakekayak-585x390.jpg" />
+    <Content Include="content\static\temp\my-journey.jpg" />
     <Content Include="content\static\temp\redwoods-585x390.jpg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\site.js" />
@@ -238,8 +240,6 @@
     <Content Include="content\dist\fonts\FontAwesome.otf" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
-    <Content Include="less\colors.less" />
-    <Content Include="less\sizes.less" />
     <Content Include="Views\Shared\_AboutUs.cshtml" />
     <Content Include="Views\Shared\_JoinUs.cshtml" />
     <Content Include="Views\Pictures\_Last.cshtml" />
@@ -250,6 +250,15 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_PreFooter.cshtml" />
+    <Content Include="Views\Articles\_ReadNow.cshtml" />
+    <Content Include="Views\Articles\_Popular.cshtml" />
+    <Content Include="Views\Articles\_Subscribe.cshtml" />
+    <Content Include="Views\Pictures\_Best.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_SocialGroups.cshtml" />
+    <Content Include="Views\Articles\_ForHome.cshtml" />
+    <Content Include="Views\Articles\_Gallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

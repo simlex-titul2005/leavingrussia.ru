@@ -14,6 +14,13 @@ namespace LR.WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name:null,
+                url: "{controller}/{year}/{month}/{day}/{titleUrl}",
+                defaults: new { controller = "Articles", action = "Details", area = "" },
+                namespaces: _dafaultNamespaces
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, area="" },

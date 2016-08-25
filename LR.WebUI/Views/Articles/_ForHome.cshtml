@@ -1,0 +1,70 @@
+﻿@model VMArticle[]
+@{
+    VMArticle item = null;
+}
+
+@if (Model.Any())
+{
+    <div class="home-materials">
+        @for (int i = 0; i < Model.Length; i++)
+        {
+            item = Model[i];
+            <div class="home-material @(i==0?"first":null)">
+                <div class="home-material__img" style="background-image:url('/content/static/temp/first-post.jpg');">
+                    @if (i == 0)
+                    {
+                        <img alt="" src="/content/static/temp/first-post.jpg" />
+                    }
+                    else
+                    {
+                        <a href="@item.GetUrl(Url)"></a>
+                    }
+                </div>
+                <div class="home-material__content">
+                    @if (item.Category != null)
+                    {
+                        <div class="home-material__category">
+                            <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Category.Title</a>
+                        </div>
+                    }
+                    <div class="home-material__title"><h2><a href="@item.GetUrl(Url)">@item.Title</a></h2></div>
+                    @if (item.User != null)
+                    {
+                        <div class="home-material__author">
+                            <i>Автор: <a href="@Url.Action("List", "Articles", new { aut=item.User.NikName})">@item.User.NikName</a></i>
+                            <i class="home-material__date">@item.DateOfPublication.ToString("MMMM d, yyyy")</i>
+                        </div>
+                    }
+                    <div class="home-material__html">
+                        @(Html.Raw(i == 0 ? item.Html : item.Foreword))
+                    </div>
+                    @if (i == 0)
+                    {
+                        <div class="home-material__read-btn">
+                            <a class="btn" href="@item.GetUrl(Url)">Подробнее</a>
+                        </div>
+                        <div class="home-material__meta">
+                            <div class="home-material__meta-left text-muted">
+                                <ul class="list-unstyled list-inline">
+                                    <li class="calendar">
+                                        <i class="fa fa-calendar-o"></i> September 4, 2015
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-comments-o"></i> 3 comments
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="home-material__meta-right">
+                                share buttons
+                            </div>
+                        </div>
+                    }
+                </div>
+                @if (i != 0 && i != Model.Length - 1)
+                {
+                    <hr />
+                }
+            </div>
+        }
+    </div>
+}

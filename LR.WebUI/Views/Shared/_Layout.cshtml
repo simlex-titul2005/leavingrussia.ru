@@ -13,9 +13,23 @@
     <div class="wrapper">
         @Html.Partial("_Header")
         @Html.Partial("_Navbar")
+        @RenderSection("gallery", false)
         <div class="container">
-            @RenderBody()
+            <div class="block">
+                <div class="block__left">
+                    @RenderBody()
+                </div>
+                <div class="block__right">
+                    @Html.Partial("_AboutUs")
+                    @Html.Partial("_JoinUs")
+                    @Html.Action("Last", "Pictures", new { amount = 10 })
+                    @Html.Action("Last", "Articles", new { amount = 5 })
+                    @Html.Action("Categories", "Articles")
+                </div>
+            </div>
         </div>
+        @Html.Partial("_PreFooter")
+        @Html.Partial("_Footer")
     </div>
     <script src="~/content/dist/js/site.min.js"></script>
     @RenderSection("scripts", false)

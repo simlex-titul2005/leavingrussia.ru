@@ -1,0 +1,25 @@
+﻿@model SxVMSubscriber
+
+<div class="subscribe">
+    <div class="subscribe__intro">
+        Subscribe my Newsletter for new blog posts, tips & photos from my journey around the world.
+    </div>
+
+    <form method="post" action="@Url.Action("Subscribe", "Articles")">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control", @placeholder="Имя..." } })
+            @Html.ValidationMessageFor(x=>x.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email..." } })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn">Подписаться</button>
+        </div>
+    </form>
+</div>
