@@ -1,28 +1,31 @@
 ﻿<header>
     <div class="top-menu">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-6">
                     <ul class="list-unstyled list-inline top-menu__menu-left">
                         <li>
                             @if (User.Identity.IsAuthenticated)
                             {
-
-                                <a href="#">Выход</a>
-
+                                <form method="post" action="@Url.Action("Logoff", "Account")">
+                                    @Html.AntiForgeryToken()
+                                    <a href="#" onclick="$(this).parent('form').submit(); return false;">Выход</a>
+                                </form>
                             }
                             else
                             {
-                                <a href="#">Вход в аккаунт</a>
+                                <a href="@Url.Action("Login", "Account")">Вход в аккаунт</a>
                             }
                         </li>
                         <li>
                             <a href="#">Регистрация</a>
                         </li>
-                        <li>
-                            <a href="@Url.Action("Index", "Home", new {area= "Admin" })">Управление</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <a href="@Url.Action("Index", "Home", new { area = "Admin" })" class="top-menu__btn-panel">@User.Identity.Name</a>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -50,7 +53,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="top-body__partners">
-                        partners
+                        <img src="/content/static/temp/banner-header1.jpg" />
                     </div>
                 </div>
             </div>

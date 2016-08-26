@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    Layout = null;
+    var withoutBodyControllers = new string[] { "account" };
+    var routeDataValues = Request.RequestContext.RouteData.Values;
+    var controller = routeDataValues["controller"];
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,7 +20,9 @@
     <div class="wrapper">
         @Html.Partial("_Header")
         @Html.Partial("_Navbar")
-        @RenderSection("gallery", false)
+        @RenderSection("full", false)
+        @if (!withoutBodyControllers.Contains(controller))
+        {
         <div class="container">
             <div class="block">
                 <div class="block__left">
@@ -28,10 +37,13 @@
                 </div>
             </div>
         </div>
+        }
         @Html.Partial("_PreFooter")
         @Html.Partial("_Footer")
     </div>
     <script src="~/content/dist/js/site.min.js"></script>
+    <script src="~/content/dist/js/jquery.validate.min.js"></script>
+    <script src="~/content/dist/js/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("scripts", false)
 </body>
 </html>

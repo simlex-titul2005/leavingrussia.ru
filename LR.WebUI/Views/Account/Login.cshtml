@@ -1,0 +1,58 @@
+﻿@model SxVMLogin
+@{
+    ViewBag.Title = "Вход";
+}
+
+@section styles{
+    <style>
+        .login-form {
+            text-align: center;
+        }
+
+        .login-form__header {
+            margin: 30px 0;
+            text-transform: uppercase;
+        }
+
+        .login-form__form {
+            width: 400px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding:0 15px;
+        }
+
+            .login-form__form .btn {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .field-validation-error{
+                text-align:left;
+                display:block;
+            }
+    </style>
+}
+
+@section full{
+    <div class="login-form">
+        <h2 class="login-form__header">Вход в аккаунт</h2>
+
+        <form method="post" action="@Url.Action("Login", "Account")" class="login-form__form">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email..." } })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+
+            <div class="form-group">
+                @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Пароль..." } })
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">Войти</button>
+            </div>
+        </form>
+    </div>
+}

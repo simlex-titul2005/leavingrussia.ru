@@ -15,7 +15,7 @@
                     <span class="header-d-arrow__span">Популярные статьи</span>
                 </h4>
                 <aside>
-                    @Html.Action("Popular", "Articles", new { amount = 3 })
+                    @Html.Action("Popular", "Articles", new { mid = (int?)null, amount = 3 })
                 </aside>
             </div>
             <div class="col-md-4">

@@ -32,7 +32,10 @@
                     {
                         <div class="home-material__author">
                             <i>Автор: <a href="@Url.Action("List", "Articles", new { aut=item.User.NikName})">@item.User.NikName</a></i>
+                            @if (i != 0)
+                            {
                             <i class="home-material__date">@item.DateOfPublication.ToString("MMMM d, yyyy")</i>
+                            }
                         </div>
                     }
                     <div class="home-material__html">
@@ -44,13 +47,13 @@
                             <a class="btn" href="@item.GetUrl(Url)">Подробнее</a>
                         </div>
                         <div class="home-material__meta">
-                            <div class="home-material__meta-left text-muted">
+                            <div class="home-material__meta-left">
                                 <ul class="list-unstyled list-inline">
                                     <li class="calendar">
-                                        <i class="fa fa-calendar-o"></i> September 4, 2015
+                                        <i class="fa fa-calendar-o"></i> @item.DateOfPublication.ToString("MMMM d, yyyy")
                                     </li>
                                     <li>
-                                        <i class="fa fa-comments-o"></i> 3 comments
+                                        <i class="fa fa-comments-o"></i> Комментариев: @item.CommentsCount
                                     </li>
                                 </ul>
                             </div>

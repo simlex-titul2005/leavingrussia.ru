@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">@SX.WebCore.Resources.Settings.adminPanelName @SX.WebCore.Resources.Settings.adminPanelVersion</a><br />
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">@SX.WebCore.Resources.Settings.adminPanelName @SX.WebCore.Resources.Settings.adminPanelVersion</a><br />
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -224,7 +224,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <form method="post" action="@Url.Action("Logoff","Account")" style="display:none;">
+                            <form method="post" action="@Url.Action("Logoff","Account", new { area=""})" style="display:none;">
                                 @Html.AntiForgeryToken()
                             </form>
                             <a href="javascript:void(0)" onclick="if(confirm('Вы действительно хотите покинуть панель управления?')){$(this).prev('form').submit();}"><i class="fa fa-sign-out fa-fw"></i> Выйти</a>
@@ -255,14 +255,14 @@
                                 <a href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Менеджер пользователей<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="@Url.Action("index", new { controller="userroles"})"><i class="fa fa-fw fa-street-view"></i> Роли</a>
+                                        <a href="@Url.Action("Index", "UserRoles")"><i class="fa fa-fw fa-street-view"></i> Роли</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("index", new { controller="users"})"><i class="fa fa-fw fa-user"></i> Пользователи</a>
+                                        <a href="@Url.Action("Index", "Users")"><i class="fa fa-fw fa-user"></i> Пользователи</a>
                                     </li>
-                                    <li>
+                                    @*<li>
                                         <a href="@Url.Action("index", new { controller= "employees" })"><i class="fa fa-fw fa-male"></i> Сотрудники</a>
-                                    </li>
+                                    </li>*@
                                 </ul>
                             </li>
                         }
@@ -312,12 +312,6 @@
                                         <a href="@Url.Action("Index", "ShareButtons")"> Кнопки шар</a>
                                     </li>
                                 </ul>
-                            </li>
-                        }
-                        @if (User.IsInRole("admin"))
-                        {
-                            <li>
-                                <a href="@Url.Action("Index", "Games")"><i class="fa fa-space-shuttle fa-fw"></i>Игры</a>
                             </li>
                         }
                         @if (User.IsInRole("author-article") || User.IsInRole("author-news") || User.IsInRole("admin"))
@@ -401,12 +395,6 @@
                                 }
                             </ul>
                         </li>
-                        }
-                        @if (User.IsInRole("admin"))
-                        {
-                            <li>
-                                <a href="@Url.Action("Index", new { controller= "SiteTests" })"><i class="fa fa-unlock-alt fa-fw"></i> Тесты</a>
-                            </li>
                         }
                         @if (User.IsInRole("seo"))
                         {

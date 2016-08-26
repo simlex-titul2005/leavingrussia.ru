@@ -62,7 +62,7 @@ namespace LR.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public override PartialViewResult Popular(int? mid = default(int?), int amount = 4)
+        public sealed override PartialViewResult Popular(int? mid = null, int amount = 4)
         {
             var date = DateTime.Now;
             var fakeData = new VMArticle[3];
