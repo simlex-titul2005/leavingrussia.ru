@@ -47,6 +47,10 @@
       <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -223,6 +227,28 @@
     <Content Include="Areas\Admin\Views\SeoTags\_GeneralEdit.cshtml" />
     <Content Include="Areas\Admin\Views\SeoTags\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\SeoKeywords\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Redirects\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Redirects\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Redirects\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Seo\EditRobotsFile.cshtml" />
+    <Content Include="Areas\Admin\Views\BannedUrls\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BannedUrls\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BannedUrls\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteSettings\EditSite.cshtml" />
+    <Content Include="Areas\Admin\Views\Valutes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Valutes\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\MaterialCategories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MaterialCategories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MaterialCategories\_TreeView.cshtml" />
+    <Content Include="Areas\Admin\Views\MaterialCategories\_TreeViewEditable.cshtml" />
+    <Content Include="Areas\Admin\Views\MaterialCategories\_TreeViewMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\EditDate.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MaterialCategoryLookupGrid.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\PicturesLookupGrid.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Articles\EditorTemplates\VMArticle.cshtml" />
     <None Include="scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="scripts\jquery-1.6.4.js" />
     <Content Include="scripts\jquery-1.6.4.min.js" />
@@ -237,17 +263,24 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannedUrlsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MaterialCategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MaterialsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NetsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PicturesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RedirectsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RequestsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeoController.cs" />
     <Compile Include="Areas\Admin\Controllers\SeoKeywordsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SeoTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShareButtonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteSettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserRolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ValutesController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -262,7 +295,10 @@
     </Compile>
     <Compile Include="Infrastructure\DbContext.cs" />
     <Compile Include="Infrastructure\Repositories\RepoArticle.cs" />
+    <Compile Include="Infrastructure\Repositories\RepoPicture.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Abstract\VMMaterial.cs" />
     <Compile Include="ViewModels\VMArticle.cs" />
@@ -320,6 +356,7 @@
     <Content Include="Areas\Admin\Views\Requests\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\Statistics\UserLogins.cshtml" />
     <Content Include="Areas\Admin\Views\Statistics\_UserLoginsGridView.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -328,9 +365,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\SiteSettings\" />
-    <Folder Include="Areas\Admin\Views\UserLogins\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\News\" />
   </ItemGroup>
   <ItemGroup>

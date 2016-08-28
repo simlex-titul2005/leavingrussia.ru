@@ -1,0 +1,36 @@
+﻿@model VMArticle
+
+<article class="material">
+    <div class="material__info">
+        @if (Model.Category != null)
+        {
+            <div class="material__category">
+                <a href="@Url.Action("Index", "Articles", new { cat = Model.CategoryId })">@Model.Category.Title</a>
+            </div>
+        }
+
+        <div class="material__title">
+            <h1>@Model.Title</h1>
+        </div>
+
+        <ul>
+            @if (Model.User != null)
+            {
+                <li>Автор: <span class="material__author">@Model.User.NikName</span></li>
+            }
+            <li>@Model.DateOfPublication.ToString("MMMM d, yyyy")</li>
+        </ul>
+    </div>
+
+    @if (Model.FrontPicture != null && Model.ShowFrontPictureOnDetailPage)
+    {
+        <div class="material__img">
+            <img alt="@Model.Title" src="@Url.Action("Picture", "Pictures", new { id = Model.FrontPictureId })" />
+        </div>
+    }
+
+    <div class="material__html">
+        @Html.Raw(Model.Html)
+    </div>
+
+</article>

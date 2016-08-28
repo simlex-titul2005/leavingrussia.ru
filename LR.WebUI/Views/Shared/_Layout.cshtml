@@ -2,7 +2,7 @@
     Layout = null;
     var withoutBodyControllers = new string[] { "account" };
     var routeDataValues = Request.RequestContext.RouteData.Values;
-    var controller = routeDataValues["controller"];
+    var controller = routeDataValues["controller"].ToString().ToLower();
 }
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
                 <div class="block__right">
                     @Html.Partial("_AboutUs")
                     @Html.Partial("_JoinUs")
-                    @Html.Action("Last", "Pictures", new { amount = 10 })
+                    @Html.Action("Last", "Pictures", new { amount = 9 })
                     @Html.Action("Last", "Articles", new { amount = 5 })
                     @Html.Action("Categories", "Articles")
                 </div>

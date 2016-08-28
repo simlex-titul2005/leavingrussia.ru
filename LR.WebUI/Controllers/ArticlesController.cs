@@ -4,10 +4,11 @@ using LR.WebUI.ViewModels;
 using SX.WebCore;
 using System;
 using SX.WebCore.ViewModels;
+using LR.WebUI.Models;
 
 namespace LR.WebUI.Controllers
 {
-    public sealed class ArticlesController : MaterialsController<VMArticle>
+    public sealed class ArticlesController : MaterialsController<Article, VMArticle>
     {
         static ArticlesController()
         {

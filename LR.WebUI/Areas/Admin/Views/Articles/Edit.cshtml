@@ -1,0 +1,67 @@
+﻿@model VMArticle
+@{
+    var isNew = Model.Id == 0;
+    ViewBag.Title = isNew ? "Добавить статью" : "Редактировать статью \"" + Model.Title + "\"";
+}
+
+@section styles{
+    <link href="~/Areas/Admin/content/dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/content/dist/css/lightbox.min.css" rel="stylesheet" />
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Основные параметры</a></li>
+    @if (!isNew)
+    {
+        <li role="presentation"><a href="#seo-cloud" aria-controls="seo-cloud" role="tab" data-toggle="tab">Облако тегов</a></li>
+    }
+</ul>
+<br />
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="info">
+        @Html.EditorForModel(additionalViewData: new { IsNew = isNew })
+    </div>
+    @if (!isNew)
+    {
+        <div role="tabpanel" class="tab-pane" id="seo-cloud">
+
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Areas/Admin/content/dist/js/moment-with-locales.min.js"></script>
+    <script src="~/Areas/Admin/content/dist/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Areas/Admin/content/dist/js/lightbox.min.js"></script>
+    <script src="~/Areas/Admin/content/dist/js/jquery.validate.min.js"></script>
+    <script src="~/Areas/Admin/content/dist/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        if (CKEDITOR.instances['Html']) {
+            CKEDITOR.remove(CKEDITOR.instances['Html']);
+        }
+        CKEDITOR.replace('Html', { height: 300 });
+
+        $('#DateOfPublication').closest('.date').datetimepicker({
+            locale: 'ru',
+            format: 'DD.MM.YYYY HH:mm',
+            icons: {
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-arrow-up',
+                down: 'fa fa-arrow-down',
+                previous: 'fa fa-arrow-left',
+                next: 'fa fa-arrow-right',
+                today: '',
+                clear: '',
+                close: ''
+            }
+        });
+
+        $(function () {
+            $("#CategoryId", "#FrontPictureId").sx_gvl();
+        });
+    </script>
+}

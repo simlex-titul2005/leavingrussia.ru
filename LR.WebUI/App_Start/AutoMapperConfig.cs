@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using LR.WebUI.Models;
+using LR.WebUI.ViewModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SX.WebCore;
 using SX.WebCore.ViewModels;
@@ -13,13 +15,34 @@ namespace LR.WebUI
             {
                 return new MapperConfiguration(cfg =>
                 {
+                    //article
+                    cfg.CreateMap<Article, VMArticle>();
+                    cfg.CreateMap<VMArticle, Article>();
+
+                    //banned url
+                    cfg.CreateMap<SxBannedUrl, SxVMBannedUrl>();
+                    cfg.CreateMap<SxBannedUrl, SxVMEditBannedUrl>();
+                    cfg.CreateMap<SxVMEditBannedUrl, SxBannedUrl>();
+
+                    //material category
+                    cfg.CreateMap<SxMaterialCategory, SxVMMaterialCategory>();
+                    cfg.CreateMap<SxVMMaterialCategory, SxMaterialCategory>();
+                    cfg.CreateMap<SxMaterialCategory, SxVMEditMaterialCategory>();
+                    cfg.CreateMap<SxVMEditMaterialCategory, SxMaterialCategory>();
+
                     //net
                     cfg.CreateMap<SxNet, SxVMNet>();
 
                     //picture
                     cfg.CreateMap<SxPicture, SxVMPicture>();
+                    cfg.CreateMap<SxVMPicture, SxPicture>();
                     cfg.CreateMap<SxPicture, SxVMEditPicture>();
                     cfg.CreateMap<SxVMEditPicture, SxPicture>();
+
+                    //request
+                    cfg.CreateMap<Sx301Redirect, SxVM301Redirect>();
+                    cfg.CreateMap<Sx301Redirect, SxVMEdit301Redirect>();
+                    cfg.CreateMap<SxVMEdit301Redirect, Sx301Redirect>();
 
                     //request
                     cfg.CreateMap<SxRequest, SxVMRequest>();
@@ -54,6 +77,7 @@ namespace LR.WebUI
 
                     //user
                     cfg.CreateMap<SxAppUser, SxVMAppUser>();
+                    cfg.CreateMap<SxVMAppUser, SxAppUser>();
                     cfg.CreateMap<SxAppUser, SxVMEditAppUser>();
                     cfg.CreateMap<SxVMEditAppUser, SxAppUser>();
 
