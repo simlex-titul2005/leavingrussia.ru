@@ -15,7 +15,7 @@
         </h4>
     </div>
 
-    @using (Ajax.BeginForm("Edit", new { controller="Comments"}, new AjaxOptions { HttpMethod="post", UpdateTargetId= "comments-"+guid }))
+    @using (Ajax.BeginForm("Edit", new { controller="Comments"}, new AjaxOptions { HttpMethod="post", UpdateTargetId= "comments-"+guid, OnSuccess= "$('#new-comment-form #Html').val(null)" }, new { @id="new-comment-form"}))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(x => x.MaterialId)

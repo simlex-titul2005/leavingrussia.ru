@@ -10,7 +10,14 @@
     <div class="comment__author-img" style="background-image:url('@(Model.User.AvatarId.HasValue?Url.Action("Picture","Pictures", new { id=Model.User.AvatarId}):"/content/static/incognito.jpg")')"></div>
     <div class="comment__content">
         <div class="comment__author-title">
+            @if (Model.User.AvatarId.HasValue)
+            {
             <a href="#">@Model.User.NikName</a>
+            }
+            else
+            {
+                <span>@Model.User.NikName</span>
+            }
         </div>
         <div class="comment__date">
             <i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;@Model.DateCreate.ToString("MMMM d, yyyy в HH:mm")
