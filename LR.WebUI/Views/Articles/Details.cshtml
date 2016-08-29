@@ -1,5 +1,4 @@
 ﻿@model VMArticle
-
 <article class="material">
     <div class="material__info">
         @if (Model.Category != null)
@@ -8,29 +7,73 @@
                 <a href="@Url.Action("Index", "Articles", new { cat = Model.CategoryId })">@Model.Category.Title</a>
             </div>
         }
-
         <div class="material__title">
             <h1>@Model.Title</h1>
         </div>
-
-        <ul>
+        <ul class="material__author">
             @if (Model.User != null)
             {
-                <li>Автор: <span class="material__author">@Model.User.NikName</span></li>
+                <li>Автор: <span class="material__author-name"><a href="@Url.Action("Index", "Articles", new { aut=Model.User.NikName})">@Model.User.NikName</a></span></li>
             }
             <li>@Model.DateOfPublication.ToString("MMMM d, yyyy")</li>
         </ul>
     </div>
-
     @if (Model.FrontPicture != null && Model.ShowFrontPictureOnDetailPage)
     {
         <div class="material__img">
             <img alt="@Model.Title" src="@Url.Action("Picture", "Pictures", new { id = Model.FrontPictureId })" />
         </div>
     }
-
     <div class="material__html">
         @Html.Raw(Model.Html)
     </div>
 
+    @Html.SxTagsCloud(Model.MaterialTags, Url.Action("Index", "Articles"), 14)
+
+    <ul class="material-bottom">
+        <li>
+            <i class="fa fa-comments-o"></i> Комментариев: @Model.CommentsCount
+        </li>
+        <li>
+            <span class="material__likes-up-count">@Model.LikeUpCount</span><i class="fa fa-heart-o"></i>
+        </li>
+        <li>
+            share buttons
+        </li>
+    </ul>
+
+    <div class="material__author-info">
+        @if (Model.User != null)
+        {
+            <div class="material__author-info--img" style="background-image:url('@Url.Action("Picture", "Pictures", new { id = Model.User.AvatarId })')"></div>
+            <div class="material__author-info--content">
+                <h5 class="material__author-info--title">
+                    <a href="@Url.Action("Index","Articles", new { aut = Model.User.NikName })">@Model.User.NikName</a>
+                </h5>
+                <div class="material__author-info--desc">
+                    Welcome to my Blog. My name is Vincent. My biggest passion if life is to travel around the world. I take photos everywhere I go to keep my memories alive.
+                </div>
+                <ul class="material__author-info--share-btns">
+                    <li><a target="_blank" class="author-social" href="http://pencidesign.com"><i class="fa fa-globe"></i></a></li>
+                    <li><a target="_blank" class="author-social" href="http://facebook.com/pencidesign"><i class="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" class="author-social" href="http://twitter.com/pencidesign"><i class="fa fa-twitter"></i></a></li>
+                    <li><a target="_blank" class="author-social" href="http://plus.google.com/pencidesign?rel=author"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a target="_blank" class="author-social" href="http://instagram.com/pencidesign"><i class="fa fa-instagram"></i></a></li>
+                    <li><a target="_blank" class="author-social" href="http://pinterest.com/pencidesign"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a target="_blank" class="author-social" href="http://pencidesign.tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+            </div>
+        }
+    </div>
+
+    @Html.Action("LikeMaterials", "Articles", new { MaterialId = Model.Id, ModelCoreType = Model.ModelCoreType, amount = 3 })
+
+    <div class="material-comments">
+        @Html.Action("Edit", "Comments", new { mid = Model.Id, mct = Model.ModelCoreType })
+    </div>
+
 </article>
+
+@section scripts{
+    <script src="~/content/dist/js/jquery.unobtrusive-ajax.min.js"></script>
+}

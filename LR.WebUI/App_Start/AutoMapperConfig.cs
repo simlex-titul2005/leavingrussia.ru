@@ -24,11 +24,21 @@ namespace LR.WebUI
                     cfg.CreateMap<SxBannedUrl, SxVMEditBannedUrl>();
                     cfg.CreateMap<SxVMEditBannedUrl, SxBannedUrl>();
 
+                    //banned url
+                    cfg.CreateMap<SxComment, SxVMComment>();
+                    cfg.CreateMap<SxComment, SxVMEditComment>();
+                    cfg.CreateMap<SxVMEditComment, SxComment>();
+
                     //material category
                     cfg.CreateMap<SxMaterialCategory, SxVMMaterialCategory>();
                     cfg.CreateMap<SxVMMaterialCategory, SxMaterialCategory>();
                     cfg.CreateMap<SxMaterialCategory, SxVMEditMaterialCategory>();
                     cfg.CreateMap<SxVMEditMaterialCategory, SxMaterialCategory>();
+
+                    //material tag
+                    cfg.CreateMap<SxMaterialTag, SxVMMaterialTag>();
+                    cfg.CreateMap<SxMaterialTag, SxVMEditMaterialTag>();
+                    cfg.CreateMap<SxVMEditMaterialTag, SxMaterialTag>();
 
                     //net
                     cfg.CreateMap<SxNet, SxVMNet>();

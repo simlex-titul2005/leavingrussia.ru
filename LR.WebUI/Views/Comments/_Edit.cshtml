@@ -1,0 +1,53 @@
+﻿@model SxVMEditComment
+@{
+    Layout = null;
+    var guid = Guid.NewGuid().ToString().ToLower();
+}
+
+<section id="comments-@guid">
+    @Html.Action("List", "Comments", new { mid = Model.MaterialId, mct = Model.ModelCoreType })
+</section>
+
+<div class="new-comment">
+    <div class="text-center">
+        <h4 class="two-arrow-header">
+            <span>Добавить комментарий</span>
+        </h4>
+    </div>
+
+    @using (Ajax.BeginForm("Edit", new { controller="Comments"}, new AjaxOptions { HttpMethod="post", UpdateTargetId= "comments-"+guid }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.MaterialId)
+        @Html.HiddenFor(x => x.ModelCoreType)
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.Html, new { htmlAttributes = new { @class = "form-control", @placeholder = "Текст комментария*" } })
+            @Html.ValidationMessageFor(x => x.Html)
+        </div>
+
+        if (!User.Identity.IsAuthenticated)
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.EditorFor(x => x.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ваше имя*" } })
+                        @Html.ValidationMessageFor(x => x.UserName)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email*" } })
+                        @Html.ValidationMessageFor(x => x.Email)
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <div class="text-center">
+                <button class="btn new-comment__send-btn" type="submit">Отправить</button>
+            </div>
+        </div>
+    }
+</div>

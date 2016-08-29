@@ -1,0 +1,18 @@
+﻿@model SxVMComment[]
+
+@if (Model.Any())
+{
+    <div class="comments">
+        <div class="text-center">
+            <h4 class="two-arrow-header">
+                <span>Комментарии</span>
+            </h4>
+        </div>
+
+        @for (int i = 0; i < Model.Length; i++)
+        {
+            var item = Model[i];
+            @Html.DisplayFor(x => item)
+        }
+    </div>
+}

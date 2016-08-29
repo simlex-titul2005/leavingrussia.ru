@@ -197,6 +197,7 @@
     <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
     <Content Include="content\static\bg.jpg" />
+    <Content Include="content\static\incognito.jpg" />
     <Content Include="content\static\logo.png" />
     <Content Include="content\static\temp\13712292_907698102687005_2080260736_n.jpg" />
     <Content Include="content\static\temp\13731188_1412849788741985_989071069_n.jpg" />
@@ -249,6 +250,7 @@
     <Content Include="Areas\Admin\Views\Articles\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Articles\EditorTemplates\VMArticle.cshtml" />
+    <Content Include="Areas\Admin\Views\MaterialTags\_GridView.cshtml" />
     <None Include="scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="scripts\jquery-1.6.4.js" />
     <Content Include="scripts\jquery-1.6.4.min.js" />
@@ -269,6 +271,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaterialCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaterialsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MaterialTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NetsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PicturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RedirectsController.cs" />
@@ -285,6 +288,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaterialsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -357,6 +361,10 @@
     <Content Include="Areas\Admin\Views\Statistics\UserLogins.cshtml" />
     <Content Include="Areas\Admin\Views\Statistics\_UserLoginsGridView.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
+    <Content Include="Views\Shared\_LikeMaterials.cshtml" />
+    <Content Include="Views\Comments\_Edit.cshtml" />
+    <Content Include="Views\Comments\_List.cshtml" />
+    <Content Include="Views\Comments\DisplayTemplates\SxVMComment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

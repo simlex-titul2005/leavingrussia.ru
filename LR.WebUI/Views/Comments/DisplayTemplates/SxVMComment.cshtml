@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNet.Identity
+@model SxVMComment
+@{
+    Layout = null;
+    var userId = User.Identity.GetUserId();
+    var isAuth = User.Identity.IsAuthenticated;
+}
+
+<div class="comment">
+    <div class="comment__author-img" style="background-image:url('@(Model.User.AvatarId.HasValue?Url.Action("Picture","Pictures", new { id=Model.User.AvatarId}):"/content/static/incognito.jpg")')"></div>
+    <div class="comment__content">
+        <div class="comment__author-title">
+            <a href="#">@Model.User.NikName</a>
+        </div>
+        <div class="comment__date">
+            <i class="fa fa-calendar-o"></i>&nbsp;&nbsp;&nbsp;@Model.DateCreate.ToString("MMMM d, yyyy в HH:mm")
+        </div>
+        <div class="comment__txt">
+            @Model.Html
+        </div>
+    </div>
+</div>

@@ -11,6 +11,19 @@
 
 <h2>@ViewBag.Title</h2>
 
+@if (!isNew)
+{
+    <div class="form-group">
+        <div class="text-right">
+            <form method="post" action="@Url.Action("Delete", "Articles")">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+                <button type="submit" class="btn btn-danger">Удалить</button>
+            </form>
+        </div>
+    </div>
+}
+
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Основные параметры</a></li>
     @if (!isNew)
@@ -26,42 +39,78 @@
     @if (!isNew)
     {
         <div role="tabpanel" class="tab-pane" id="seo-cloud">
-
+            @using (Ajax.BeginForm("Edit", new { controller = "MaterialTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "grid-material-tags", OnSuccess= "$('#seo-cloud form input[name=\"Id\"]').val(null)" }, new { @autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="MaterialId" name="MaterialId" value="@Model.Id" />
+                <input type="hidden" id="ModelCoreType" name="ModelCoreType" value="@Model.ModelCoreType" />
+                <label for="Value">Новый тег облака</label> <span class="text-info">(максимально 4 слова)</span>
+                <div class="input-group">
+                    <input type="text" name="Id" class="form-control" placeholder="Введите значение тега" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Добавить</button>
+                    </span>
+                </div>
+            }
+            <br />
+            <div id="grid-material-tags"></div>
         </div>
     }
 </div>
 
 @section scripts{
+    <script src="~/bower_components/ckeditor/ckeditor.js"></script>
     <script src="~/Areas/Admin/content/dist/js/moment-with-locales.min.js"></script>
     <script src="~/Areas/Admin/content/dist/js/bootstrap-datetimepicker.min.js"></script>
     <script src="~/Areas/Admin/content/dist/js/lightbox.min.js"></script>
     <script src="~/Areas/Admin/content/dist/js/jquery.validate.min.js"></script>
     <script src="~/Areas/Admin/content/dist/js/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/bower_components/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Admin/content/dist/js/jquery.unobtrusive-ajax.min.js"></script>
+
     <script>
         if (CKEDITOR.instances['Html']) {
             CKEDITOR.remove(CKEDITOR.instances['Html']);
         }
         CKEDITOR.replace('Html', { height: 300 });
 
-        $('#DateOfPublication').closest('.date').datetimepicker({
-            locale: 'ru',
-            format: 'DD.MM.YYYY HH:mm',
-            icons: {
-                time: 'fa fa-clock-o',
-                date: 'fa fa-calendar',
-                up: 'fa fa-arrow-up',
-                down: 'fa fa-arrow-down',
-                previous: 'fa fa-arrow-left',
-                next: 'fa fa-arrow-right',
-                today: '',
-                clear: '',
-                close: ''
-            }
-        });
-
         $(function () {
-            $("#CategoryId", "#FrontPictureId").sx_gvl();
+            $('#CategoryId, #FrontPictureId').sx_gvl();
+
+            $('#DateOfPublication').closest('.date').datetimepicker({
+                locale: 'ru',
+                format: 'DD.MM.YYYY HH:mm',
+                icons: {
+                    time: 'fa fa-clock-o',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-arrow-left',
+                    next: 'fa fa-arrow-right',
+                    today: '',
+                    clear: '',
+                    close: ''
+                }
+            });
+
+            $('a[href="#seo-cloud"]').on('show.bs.tab', function (e) {
+                $a = $(e.target);
+
+                $.ajax({
+                    method: 'get',
+                    url: '@Url.Action("Index","MaterialTags")',
+                    data: {mid:@Model.Id, mct: '@Model.ModelCoreType'},
+                    beforeSend:function(){
+                        $a.prepend('<i class="fa fa-spinner fa-spin tab-spinner"></i>');
+                    },
+                    success: function (result) {
+                        $('#grid-material-tags').html(result);
+                        $('#grid-material-tags').sx_gv();
+                    },
+                    complete:function(){
+                        $a.find('.tab-spinner').remove();
+                    }
+                });
+            })
         });
     </script>
 }

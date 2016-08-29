@@ -5,6 +5,7 @@
 
 <form method="post" action="@Url.Action("Edit", "Articles")">
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(x=>x.Id)
 
     @if (!isNew)
     {
@@ -89,7 +90,7 @@
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">@(isNew ? "Сохранить" : "Добавить")</button>
+        <button type="submit" class="btn btn-primary">@(isNew ? "Добавить" : "Сохранить")</button>
         <a href="@Url.Action("Index", "Articles")" class="btn btn-default">Назад</a>
     </div>
 

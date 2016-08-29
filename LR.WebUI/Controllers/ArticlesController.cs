@@ -19,24 +19,9 @@ namespace LR.WebUI.Controllers
         public ArticlesController() : base(Enums.ModelCoreType.Article) { }
 
         [ChildActionOnly]
-        public sealed override PartialViewResult Last(Enums.ModelCoreType? mct = null, int amount = 5)
+        public override PartialViewResult Last(Enums.ModelCoreType? mct = null, int amount = 5, int? mid=null)
         {
-            var date = DateTime.Now;
-            var fakeData = new VMArticle[6];
-            for (int i = 0; i < 6; i++)
-            {
-                fakeData[i] = new VMArticle
-                {
-                    Id = i + 1,
-                    Title = "Beautiful Forest in Europe-" + (i + 1),
-                    TitleUrl = UrlHelperExtensions.SeoFriendlyUrl("Beautiful Forest in Europe-" + (i + 1)),
-                    DateCreate = date.AddDays(-1),
-                    DateOfPublication = date.AddDays(-1)
-                };
-            }
-
-            //var viewModel = Repo.Last(mct, amount);
-            var viewModel = fakeData;
+            var viewModel = Repo.Last(Enums.ModelCoreType.Article, amount, mid);
             return PartialView("_Last", viewModel);
         }
 
@@ -94,28 +79,8 @@ namespace LR.WebUI.Controllers
         [ChildActionOnly]
         public PartialViewResult ForHome(int amount=11)
         {
-            var date = DateTime.Now;
-            var fakeData = new VMArticle[11];
-            for (int i = 0; i < 11; i++)
-            {
-                fakeData[i] = new VMArticle
-                {
-                    Id = i + 1,
-                    Title = "Beautiful Forest in Europe-" + (i + 1),
-                    TitleUrl = UrlHelperExtensions.SeoFriendlyUrl("Beautiful Forest in Europe-" + (i + 1)),
-                    DateCreate = date.AddDays(-1),
-                    DateOfPublication = date.AddDays(-1),
-                    Foreword = @"Lorem ipsum dolor sit amet, consectetuer adipiscing. Aenean commodo ligula eget dolor. Aenean masssociis nat penatibus et magnis dis parturient monteios, nascetur ridiculus mus. Nulla onsequat mas quis enim. Pede justo, fringilla vel, aliquet nec loremt, vulputate eget. Nemo enim ipsam voluptatem quia voluptas sit pernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
-                    Html = @"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing. Aenean commodo ligula eget dolor. Aenean masssociis nat penatibus et magnis dis parturient monteios, nascetur ridiculus mus. Nulla onsequat mas quis enim. Pede justo, fringilla vel, aliquet nec loremt, vulputate eget. Nemo enim ipsam voluptatem quia voluptas sit pernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-                    <p>
-                        Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer cidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Lorem ipsum. vitae dicta sunt.
-                    </p>",
-                    User=new SxVMAppUser { NikName="simlex" },
-                    Category=new SxVMMaterialCategory { Id="europe", Title="Europe" }
-                };
-            }
-
-            return PartialView("_ForHome", fakeData);
+            var viewModel = (Repo as RepoArticle).ForHome(amount);
+            return PartialView("_ForHome", viewModel);
         }
 
         [ChildActionOnly]

@@ -1,6 +1,7 @@
 ﻿@model VMArticle[]
 @{
     VMArticle item = null;
+    var maxLettersCount = 300;
 }
 
 @if (Model.Any())
@@ -34,12 +35,12 @@
                             <i>Автор: <a href="@Url.Action("List", "Articles", new { aut=item.User.NikName})">@item.User.NikName</a></i>
                             @if (i != 0)
                             {
-                            <i class="home-material__date">@item.DateOfPublication.ToString("MMMM d, yyyy")</i>
+                                <i class="home-material__date">@item.DateOfPublication.ToString("MMMM d, yyyy")</i>
                             }
                         </div>
                     }
                     <div class="home-material__html">
-                        @(Html.Raw(i == 0 ? item.Html : item.Foreword))
+                        @(Html.Raw(i == 0 ? item.Html : (item.Foreword ?? (item.Html.Length >= maxLettersCount ? item.Html.Substring(0, maxLettersCount)+"..." : item.Html))))
                     </div>
                     @if (i == 0)
                     {

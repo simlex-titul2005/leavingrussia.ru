@@ -14,17 +14,13 @@
     </style>
     }
 
-<div>
-    <a class="btn btn-default" href="@Url.Action("index")">Назад</a>
-</div>
-
 <h2>@ViewBag.Title</h2>
 
 <div class="user">
     @if (Model.AvatarId.HasValue)
             {
         <div>
-            <img class="img-circle" alt="@userName" src="@Url.Action("picture", new { controller = "pictures", id = Model.AvatarId })" />
+            <img class="img-circle" alt="@userName" src="@Url.Action("Picture", "Pictures", new { id = Model.AvatarId })" />
         </div>
     }
     <div class="row">

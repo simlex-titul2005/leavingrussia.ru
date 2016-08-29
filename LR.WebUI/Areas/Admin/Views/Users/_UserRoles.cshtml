@@ -2,7 +2,7 @@
 @{
     Layout = null;
     var roles = (SxAppRole[])ViewBag.Roles;
-    var message = TempData["UserRoleMessage"];
+    var message = ViewBag.UserRoleMessage;
 }
 
 @if (message != null)
