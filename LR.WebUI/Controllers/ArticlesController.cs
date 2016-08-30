@@ -32,7 +32,7 @@ namespace LR.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult ReadNow()
+        public PartialViewResult ReadingNow()
         {
             var date = DateTime.Now;
             var viewModel= new VMArticle
@@ -50,22 +50,7 @@ namespace LR.WebUI.Controllers
         [ChildActionOnly]
         public sealed override PartialViewResult Popular(int? mid = null, int amount = 4)
         {
-            var date = DateTime.Now;
-            var fakeData = new VMArticle[3];
-            for (int i = 0; i < 3; i++)
-            {
-                fakeData[i] = new VMArticle
-                {
-                    Id = i + 1,
-                    Title = "Beautiful Forest in Europe-" + (i + 1),
-                    TitleUrl = UrlHelperExtensions.SeoFriendlyUrl("Beautiful Forest in Europe-" + (i + 1)),
-                    DateCreate = date.AddDays(-1),
-                    DateOfPublication = date.AddDays(-1)
-                };
-            }
-
-            //var viewModel = Repo.Last(mct, amount);
-            var viewModel = fakeData;
+            var viewModel = Repo.GetPopular(ModelCoreType, mid, amount);
             return PartialView("_Popular", viewModel);
         }
 

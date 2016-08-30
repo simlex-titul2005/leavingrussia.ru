@@ -1,8 +1,8 @@
 ﻿using LR.WebUI.Infrastructure;
+using SX.WebCore.Managers;
 using SX.WebCore.MvcApplication;
 using System;
 using System.Configuration;
-using System.Web.Mvc;
 
 namespace LR.WebUI
 {
@@ -10,7 +10,8 @@ namespace LR.WebUI
     {
         protected override void Application_Start(object sender, EventArgs e)
         {
-            var args = new SxApplicationEventArgs {
+            var args = new SxApplicationEventArgs
+            {
                 WebApiConfigRegister = WebApiConfig.Register,
                 RegisterRoutes = RouteConfig.RegisterRoutes,
                 MapperConfiguration = AutoMapperConfig.MapperConfigurationInstance,
