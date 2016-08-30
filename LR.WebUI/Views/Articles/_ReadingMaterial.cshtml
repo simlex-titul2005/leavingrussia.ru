@@ -1,0 +1,10 @@
+﻿@model SxVMMaterial
+
+<div class="read-now-article">
+    <div class="read-now-article__img" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=Model.FrontPictureId })')">
+        <a href="@Model.GetUrl(Url)"></a>
+    </div>
+    <div class="read-now-article__txt">
+        @(Model.Foreword ?? Model.GetForewordFromHtml(215))
+    </div>
+</div>

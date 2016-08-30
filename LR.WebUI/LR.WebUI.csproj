@@ -291,6 +291,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaterialCategoriesController.cs" />
     <Compile Include="Controllers\MaterialsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
@@ -325,14 +326,14 @@
     <Content Include="Views\Shared\_JoinUs.cshtml" />
     <Content Include="Views\Pictures\_Last.cshtml" />
     <Content Include="Views\Articles\_Last.cshtml" />
-    <Content Include="Views\Articles\_Categories.cshtml" />
+    <Content Include="Views\MaterialCategories\_Categories.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_PreFooter.cshtml" />
-    <Content Include="Views\Articles\_ReadNow.cshtml" />
+    <Content Include="Views\Articles\_ReadingMaterial.cshtml" />
     <Content Include="Views\Articles\_Popular.cshtml" />
     <Content Include="Views\Articles\_Subscribe.cshtml" />
     <Content Include="Views\Pictures\_Best.cshtml" />
@@ -366,6 +367,7 @@
     <Content Include="Views\Comments\_Edit.cshtml" />
     <Content Include="Views\Comments\_List.cshtml" />
     <Content Include="Views\Comments\DisplayTemplates\SxVMComment.cshtml" />
+    <Content Include="Views\MaterialCategories\_TreeViewMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

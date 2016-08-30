@@ -1,7 +1,6 @@
 ﻿@model VMArticle[]
 @{
     VMArticle item = null;
-    var maxLettersCount = 300;
 }
 
 @if (Model.Any())
@@ -11,14 +10,14 @@
         {
             item = Model[i];
             <div class="home-material @(i==0?"first":null)">
-                <div class="home-material__img" style="background-image:url('/content/static/temp/first-post.jpg');">
+                <div class="home-material__img">
                     @if (i == 0)
                     {
-                        <img alt="" src="/content/static/temp/first-post.jpg" />
+                        <img alt="" src="@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId})" />
                     }
                     else
                     {
-                        <a href="@item.GetUrl(Url)"></a>
+                        <a href="@item.GetUrl(Url)" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId})');"></a>
                     }
                 </div>
                 <div class="home-material__content">
@@ -40,7 +39,7 @@
                         </div>
                     }
                     <div class="home-material__html">
-                        @(Html.Raw(i == 0 ? item.Html : (item.Foreword ?? (item.Html.Length >= maxLettersCount ? item.Html.Substring(0, maxLettersCount)+"..." : item.Html))))
+                        @(Html.Raw(i == 0 ? item.Html : (item.Foreword ?? item.GetForewordFromHtml(300))))
                     </div>
                     @if (i == 0)
                     {

@@ -5,6 +5,7 @@ using SX.WebCore;
 using System;
 using SX.WebCore.ViewModels;
 using LR.WebUI.Models;
+using System.Linq;
 
 namespace LR.WebUI.Controllers
 {
@@ -26,25 +27,10 @@ namespace LR.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult Categories()
+        public PartialViewResult ReadingMaterial()
         {
-            return PartialView("_Categories");
-        }
-
-        [ChildActionOnly]
-        public PartialViewResult ReadingNow()
-        {
-            var date = DateTime.Now;
-            var viewModel= new VMArticle
-            {
-                Id = 10,
-                Title = "Beautiful Forest in Europe-" + 10,
-                TitleUrl = UrlHelperExtensions.SeoFriendlyUrl("Beautiful Forest in Europe-" + 10),
-                DateCreate = date.AddDays(10),
-                DateOfPublication = date.AddDays(-1)
-            };
-
-            return PartialView("_ReadNow", viewModel);
+            var viewModel = MvcApplication.ReadingMaterial ?? Repo.Last(mct: ModelCoreType, amount:1, mid:null).FirstOrDefault();
+            return PartialView("_ReadingMaterial", viewModel);
         }
 
         [ChildActionOnly]

@@ -20,6 +20,8 @@ namespace LR.WebUI.Controllers
             if (viewModel == null)
                 return new HttpNotFoundResult();
 
+            MvcApplication.ReadingMaterial = viewModel;
+
             return View(viewModel);
         }
     }

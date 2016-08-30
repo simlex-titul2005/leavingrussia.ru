@@ -1,0 +1,29 @@
+﻿@*<aside class="categories">
+        <h4 class="green-header"><span class="green-header__arrow">Категории</span></h4>
+        <br />
+        <ul class="categories__list">
+            <li>
+                <a href="#"><i class="fa"></i>Destinations</a>
+                <ul>
+                    <li><a href="#">Africa</a></li>
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Feautered</a></li>
+            <li><a href="#">Travel tips</a></li>
+        </ul>
+    </aside>*@
+
+@model SxVMMaterialCategory[]
+
+<aside class="categories">
+    <h4 class="green-header"><span class="green-header__arrow">Категории</span></h4>
+    <br />
+    @Html.SxTree(Model, new SxExtantions.SxTreeSettings<SxVMMaterialCategory>
+{
+    FuncChildren = x => { return x.ChildCategories; },
+    FuncContent = x => { return "<a href=\"#\">" + x.Title + "</a>"; }
+}, new { @class= "categories__list" })
+</aside>
+
