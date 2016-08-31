@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Layout = null;
     var withoutBodyControllers = new string[] { "account" };
     var routeDataValues = Request.RequestContext.RouteData.Values;
@@ -10,7 +10,6 @@
         mid = ((VMArticle)Model).Id;
     }
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(ViewBag.Title == null ? "leavingrussia.ru" : ViewBag.Title + " | leavingrussia.ru")</title>
-
     <link href="~/content/dist/css/site.min.css" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
@@ -29,20 +27,20 @@
         @RenderSection("full", false)
         @if (!withoutBodyControllers.Contains(controller))
         {
-        <div class="container">
-            <div class="block">
-                <div class="block__left">
-                    @RenderBody()
-                </div>
-                <div class="block__right">
-                    @Html.Partial("_AboutUs")
-                    @Html.Partial("_JoinUs")
-                    @Html.Action("Last", "Pictures", new { amount = 9 })
-                    @Html.Action("Last", "Articles", new { amount = 5, mid= mid })
-                    @Html.Action("TreeViewMenu", "MaterialCategories", new { mct=SX.WebCore.Enums.ModelCoreType.Article})
+            <div class="container">
+                <div class="block">
+                    <div class="block__left">
+                        @RenderBody()
+                    </div>
+                    <div class="block__right">
+                        @Html.Partial("_AboutUs")
+                        @Html.Partial("_JoinUs")
+                        @Html.Action("Last", "Pictures", new { amount = 9 })
+                        @Html.Action("Last", "Articles", new { amount = 5, mid = mid })
+                        @Html.Action("TreeViewMenu", "MaterialCategories", new { mct = SX.WebCore.Enums.ModelCoreType.Article })
+                    </div>
                 </div>
             </div>
-        </div>
         }
         @Html.Partial("_PreFooter")
         @Html.Partial("_Footer")
