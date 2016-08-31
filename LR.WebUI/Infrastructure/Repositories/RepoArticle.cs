@@ -37,6 +37,31 @@ ORDER BY dm.DateOfPublication DESC");
             }
         }
 
+        public VMArticle[] Gallery(int boxesCount=3)
+        {
+            var materialsCountInBox = 3;
+
+            var query = new StringBuilder();
+            query.Append(@"SELECT TOP (@amount) dm.*, dmc.*, anu.*, dp.Id FROM DV_MATERIAL AS dm
+LEFT JOIN D_MATERIAL_CATEGORY AS dmc ON dmc.Id = dm.CategoryId
+JOIN AspNetUsers AS anu ON anu.Id = dm.UserId
+JOIN D_PICTURE AS dp ON dp.Id = dm.FrontPictureId
+WHERE dm.Show=1 AND dm.DateOfPublication<=GETDATE()
+ORDER BY dm.DateOfPublication DESC");
+
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var data = connection.Query<VMArticle, SxVMMaterialCategory, SxVMAppUser, SxVMPicture, VMArticle>(query.ToString(), (m, c, u, p) => {
+                    m.Category = c;
+                    m.User = u;
+                    m.FrontPicture = p;
+                    return m;
+                }, new { amount = boxesCount*materialsCountInBox, mct = ModelCoreType }, splitOn: "Id");
+
+                return data.ToArray();
+            }
+        }
+
         public override VMArticle[] GetLikeMaterials(SxFilter filter, int amount = 10)
         {
             var query = new StringBuilder();

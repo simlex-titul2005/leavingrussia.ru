@@ -376,15 +376,13 @@
     <Content Include="Views\Comments\_List.cshtml" />
     <Content Include="Views\Comments\DisplayTemplates\SxVMComment.cshtml" />
     <Content Include="Views\MaterialCategories\_TreeViewMenu.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\News\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SX.WebCore\SX.WebCore\SX.WebCore.csproj">

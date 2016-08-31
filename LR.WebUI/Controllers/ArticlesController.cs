@@ -57,30 +57,11 @@ namespace LR.WebUI.Controllers
         [ChildActionOnly]
         public PartialViewResult Gallery(int boxesCount=3)
         {
-            var date = DateTime.Now;
-            var fakeData = new VMArticle[9];
-            for (int i = 0; i < 9; i++)
-            {
-                fakeData[i] = new VMArticle
-                {
-                    Id = i + 1,
-                    Title = "Beautiful Forest in Europe-" + (i + 1),
-                    TitleUrl = UrlHelperExtensions.SeoFriendlyUrl("Beautiful Forest in Europe-" + (i + 1)),
-                    DateCreate = date.AddDays(-1),
-                    DateOfPublication = date.AddDays(-1),
-                    Foreword = @"Lorem ipsum dolor sit amet, consectetuer adipiscing. Aenean commodo ligula eget dolor. Aenean masssociis nat penatibus et magnis dis parturient monteios, nascetur ridiculus mus. Nulla onsequat mas quis enim. Pede justo, fringilla vel, aliquet nec loremt, vulputate eget. Nemo enim ipsam voluptatem quia voluptas sit pernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
-                    Html = @"<p>Lorem ipsum dolor sit amet, consectetuer adipiscing. Aenean commodo ligula eget dolor. Aenean masssociis nat penatibus et magnis dis parturient monteios, nascetur ridiculus mus. Nulla onsequat mas quis enim. Pede justo, fringilla vel, aliquet nec loremt, vulputate eget. Nemo enim ipsam voluptatem quia voluptas sit pernatur aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-                    <p>
-                        Rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer cidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Lorem ipsum. vitae dicta sunt.
-                    </p>",
-                    User = new SxVMAppUser { NikName = "simlex" },
-                    Category = new SxVMMaterialCategory { Id = "europe", Title = "Europe" }
-                };
-            }
+            var viewModel = (Repo as RepoArticle).Gallery(boxesCount: boxesCount);
 
             ViewBag.BoxesCount = boxesCount;
 
-            return PartialView("_Gallery", fakeData);
+            return PartialView("_Gallery", viewModel);
         }
     }
 }

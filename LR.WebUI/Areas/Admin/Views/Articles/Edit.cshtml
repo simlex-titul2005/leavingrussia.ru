@@ -70,12 +70,16 @@
             <h4>Видео контент материала</h4>
             @Html.Partial("_NotMaterialVideos", Model)
             <div id="videos"></div>
+            <br />
+            <a href="#info" aria-controls="info" class="btn btn-default" onclick="$('a[href=&quot;#info&quot;]').tab('show'); return false;"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;Параметры</a>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="mm-pictures">
             <h4>Фото контент материала</h4>
             @Html.Partial("_NotMaterialPictures", Model)
             <div id="pictures"></div>
+            <br />
+            <a href="#info" aria-controls="info" class="btn btn-default" onclick="$('a[href=&quot;#info&quot;]').tab('show'); return false;"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;Параметры</a>
         </div>
     }
 </div>

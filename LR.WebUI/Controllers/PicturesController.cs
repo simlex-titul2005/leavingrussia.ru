@@ -22,10 +22,10 @@ namespace LR.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult Best()
+        public PartialViewResult Best(int amount=6)
         {
-            var data = new SxVMPicture[0];
-            return PartialView("_Best", data);
+            var viewModel = (Repo as RepoPicture).Best(amount);
+            return PartialView("_Best", viewModel);
         }
     }
 }

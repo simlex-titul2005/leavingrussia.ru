@@ -18,12 +18,8 @@
                         {
                             item = data[y];
 
-                            var i1 = i == 0 && y == 0 ? "/content/static/temp/airplane-crash-780x516.jpg" : y == 1 ? "/content/static/temp/iceland-585x390.jpg" : "/content/static/temp/iceland2-585x390.jpg";
-                            var i2 = i == 1 && y == 0 ? "/content/static/temp/iceland-585x390.jpg" : y == 1 ? "/content/static/temp/airplane-crash-780x516.jpg" : "/content/static/temp/iceland2-585x390.jpg";
-                            var i3 = i == 2 && y == 0 ? "/content/static/temp/iceland2-585x390.jpg" : y == 1 ? "/content/static/temp/iceland-585x390.jpg" : "/content/static/temp/airplane-crash-780x516.jpg";
-
                             <li class="gallery__item gallery__item-@(y+1)">
-                                <div class="gallery__img" style="background-image:url('@(i==0?i1:i==1?i2:i3)')">
+                                <div class="gallery__img" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId})')">
                                     <a href="@item.GetUrl(Url)" class="gallery__link"></a>
                                 </div>
                                 <div class="gallery__item-info">
