@@ -252,6 +252,12 @@
     <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Articles\EditorTemplates\VMArticle.cshtml" />
     <Content Include="Areas\Admin\Views\MaterialTags\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoLinks\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\VideoLinks\_GridViewNotLinked.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_NotMaterialVideos.cshtml" />
+    <Content Include="Areas\Admin\Views\PictureLinks\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\PictureLinks\_GridViewNotLinked.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_NotMaterialPictures.cshtml" />
     <None Include="scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="scripts\jquery-1.6.4.js" />
     <Content Include="scripts\jquery-1.6.4.min.js" />
@@ -285,6 +291,8 @@
     <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ValutesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PictureLinksController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VideoLinksController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />

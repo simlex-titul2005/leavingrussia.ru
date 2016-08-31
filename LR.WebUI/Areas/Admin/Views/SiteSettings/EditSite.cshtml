@@ -1,7 +1,6 @@
 ﻿@model SxVMSiteSettings
 @{
     ViewBag.Title = "Настройки сайта";
-    var message = TempData["EditEmptyGameMessage"];
 }
 
 @section styles{
@@ -16,9 +15,9 @@
 
 <h2>@ViewBag.Title</h2>
 <br />
-@if (message != null)
+@if (ViewBag.EditSiteSettingsMessage != null)
 {
-    <p class="text-success">@message</p>
+    <p class="text-success">@ViewBag.EditSiteSettingsMessage</p>
 }
 <form method="post" action="@Url.Action("Editsite","SiteSettings")" autocomplete="off">
     @Html.AntiForgeryToken()

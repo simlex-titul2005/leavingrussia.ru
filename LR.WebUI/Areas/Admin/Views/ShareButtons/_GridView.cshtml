@@ -8,8 +8,8 @@
             {
                 Columns = new SxExtantions.SxGridViewColumn<SxVMShareButton>[]{
                     new SxExtantions.SxGridViewColumn<SxVMShareButton>{FieldName="NetName", Caption="Сеть", Template=x=> {
-                        return string.Format("<span style=\"width:100px; display:inline-block;\">{0}</span>&nbsp;<i class=\"{1}\"></i>", x.NetName, x.Net.LogoCssClass);
-                    } },
+                        return string.Format("<small>{0}</small><br/><i class=\"{1}\"></i>", x.NetName, x.Net.LogoCssClass);
+                    }, ColumnCssClass=x=> { return "col-first"; } },
                     new SxExtantions.SxGridViewColumn<SxVMShareButton>{FieldName="Show", Caption="Показывать", Template=x=> {
                         return string.Format("<i class=\"fa {0} {1}\"></i>", x.Show?"fa-check ":"fa-times", x.Show?"text-success":"text-danger");
                     } },

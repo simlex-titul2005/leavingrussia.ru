@@ -1,0 +1,20 @@
+﻿@model SxVMPicture[]
+@{
+    Layout = null;
+    int mid = ViewBag.MaterialId;
+    Enums.ModelCoreType mct = ViewBag.ModelCoreType;
+}
+
+
+@Html.SxGridView(Model,
+            new SxExtantions.SxGridViewSettings<SxVMPicture>
+            {
+                Columns = new SxExtantions.SxGridViewColumn<SxVMPicture>[]{
+                    new SxExtantions.SxGridViewColumn<SxVMPicture>{FieldName="Caption", Caption="Название видео"}
+                },
+                DataAjaxUrl = Url.Action("IndexNotlinked", "PictureLinks", new { mid = mid, mct = mct, fm = false }),
+                ShowSelectedCheckbox = true,
+                RowId = x => { return x.Id.ToString(); },
+                ShowPagerInfo=true
+            }
+    )

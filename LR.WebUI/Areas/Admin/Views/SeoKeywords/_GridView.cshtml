@@ -5,7 +5,7 @@
 }
 
 <br />
-<h3>Ключевые слова<span class="small"> (Максимально рекомендуемое количество фраз - 20)</span></h3>
+<h4>Ключевые слова<span class="small"> (Максимально рекомендуемое количество фраз - 20)</span></h4>
 @using (Ajax.BeginForm("edit", new { controller = "SeoKeywords", SeoTagsId = seoTagsId }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "seo-kw" }))
 {
     @Html.AntiForgeryToken()

@@ -1,14 +1,15 @@
 ﻿@model SxVMRobotsFile
 @{
     ViewBag.Title = "Содержание Robots.txt";
-    var message = ViewBag.EditEmptyGameMessage;
 }
+
 <h2>@ViewBag.Title</h2>
 <br />
-@if (message != null)
+@if (ViewBag.EditSiteSettingsMessage != null)
 {
-    <p class="text-success">@message</p>
+    <p class="text-success">@ViewBag.EditSiteSettingsMessage</p>
 }
+
 <form method="post" action="@Url.Action("EditRobotsFile","Seo")">
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.OldFileContent)
