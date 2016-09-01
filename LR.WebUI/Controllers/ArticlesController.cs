@@ -29,7 +29,7 @@ namespace LR.WebUI.Controllers
         [ChildActionOnly]
         public PartialViewResult ReadingMaterial()
         {
-            var viewModel = MvcApplication.ReadingMaterial ?? Repo.Last(mct: ModelCoreType, amount:1, mid:null).FirstOrDefault();
+            var viewModel = MvcApplication.ReadingMaterial ?? Repo.Last(mct: ModelCoreType, amount:1, mid:null).FirstOrDefault() ?? new VMArticle() { Html="Отсутсвуют данные БД"};
             return PartialView("_ReadingMaterial", viewModel);
         }
 
