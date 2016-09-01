@@ -372,6 +372,8 @@
     <Content Include="Views\Comments\DisplayTemplates\SxVMComment.cshtml" />
     <Content Include="Views\MaterialCategories\_TreeViewMenu.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

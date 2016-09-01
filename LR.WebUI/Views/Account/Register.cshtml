@@ -31,6 +31,16 @@
             text-align: left;
             display: block;
         }
+
+        .validation-summary-errors{
+            margin-bottom:15px;
+        }
+
+        .validation-summary-errors ul{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
     </style>
 }
 
@@ -39,6 +49,8 @@
         <h2 class="register-form__header">@ViewBag.Title</h2>
 
         <form method="post" action="@Url.Action("Register", "Account")" class="register-form__form" autocomplete="off">
+            @Html.ValidationSummary()
+
             @Html.AntiForgeryToken()
 
             <div class="form-group">
@@ -63,6 +75,11 @@
 
             <div class="form-group">
                 <button type="submit" class="btn">Создать аккаунт</button>
+            </div>
+
+            <div class="form-group">
+                <p class="text-muted">У Вас уже есть аккаунт?</p>
+                <a href="@Url.Action("Login", "Account")" class="btn">Войти</a>
             </div>
         </form>
     </div>
