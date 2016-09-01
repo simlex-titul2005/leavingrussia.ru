@@ -4,6 +4,7 @@ using SX.WebCore.MvcApplication;
 using SX.WebCore.ViewModels;
 using System;
 using System.Configuration;
+using System.Web.Mvc;
 
 namespace LR.WebUI
 {

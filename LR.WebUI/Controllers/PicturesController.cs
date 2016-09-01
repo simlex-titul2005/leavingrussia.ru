@@ -7,9 +7,9 @@ namespace LR.WebUI.Controllers
 {
     public sealed class PicturesController : SxPicturesController<DbContext>
     {
-        static PicturesController()
+        public PicturesController()
         {
-            if (Repo == null)
+            if(Repo==null)
                 Repo = new RepoPicture();
         }
 
