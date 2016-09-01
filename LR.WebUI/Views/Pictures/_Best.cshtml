@@ -1,9 +1,10 @@
 ﻿@model SxVMPicture[]
 @{
     SxVMPicture item = null;
+    var amount = (int)ViewBag.Amount;
 }
 
-@if (Model.Any())
+@if (Model.Any() && Model.Length==amount)
 {
     <div class="best-pictures">
         <h4 class="best-pictures-instagram"><span><span class="title">follow me on instagram</span></span></h4>

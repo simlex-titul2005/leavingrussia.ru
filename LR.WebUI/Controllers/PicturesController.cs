@@ -1,7 +1,6 @@
 ﻿using LR.WebUI.Infrastructure;
 using LR.WebUI.Infrastructure.Repositories;
 using SX.WebCore.MvcControllers;
-using SX.WebCore.ViewModels;
 using System.Web.Mvc;
 
 namespace LR.WebUI.Controllers
@@ -25,6 +24,9 @@ namespace LR.WebUI.Controllers
         public PartialViewResult Best(int amount=6)
         {
             var viewModel = (Repo as RepoPicture).Best(amount);
+
+            ViewBag.Amount = amount;
+
             return PartialView("_Best", viewModel);
         }
     }
