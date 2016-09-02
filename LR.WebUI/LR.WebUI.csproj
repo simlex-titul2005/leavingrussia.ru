@@ -258,17 +258,26 @@
     <Content Include="Areas\Admin\Views\PictureLinks\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\PictureLinks\_GridViewNotLinked.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_NotMaterialPictures.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\_FindGridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\_GroupBanners.cshtml" />
+    <Content Include="Areas\Admin\Views\BannerGroups\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BannerGroups\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BannerGroups\_GridView.cshtml" />
     <None Include="Properties\PublishProfiles\PROD.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannedUrlsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannerGroupsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaterialCategoriesController.cs" />

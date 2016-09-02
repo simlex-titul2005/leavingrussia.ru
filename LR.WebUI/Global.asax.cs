@@ -1,10 +1,11 @@
 ﻿using LR.WebUI.Infrastructure;
+using LR.WebUI.Models;
+using LR.WebUI.ViewModels;
 using SX.WebCore.Managers;
 using SX.WebCore.MvcApplication;
 using SX.WebCore.ViewModels;
 using System;
 using System.Configuration;
-using System.Web.Mvc;
 
 namespace LR.WebUI
 {
@@ -16,8 +17,14 @@ namespace LR.WebUI
             {
                 WebApiConfigRegister = WebApiConfig.Register,
                 RegisterRoutes = RouteConfig.RegisterRoutes,
-                MapperConfiguration = AutoMapperConfig.MapperConfigurationInstance,
-                LoggingRequest = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingRequest"])
+                LoggingRequest = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingRequest"]),
+                MapperConfigurationExpression = cfg => {
+
+                    //article
+                    cfg.CreateMap<Article, VMArticle>();
+                    cfg.CreateMap<VMArticle, Article>();
+
+                }
             };
 
             base.Application_Start(sender, args);
