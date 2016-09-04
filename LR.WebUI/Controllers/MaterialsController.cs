@@ -13,6 +13,8 @@ namespace LR.WebUI.Controllers
     {
         public MaterialsController(ModelCoreType mct) : base(mct) { }
 
+        private static readonly int _pageSize = 10;
+
         [HttpGet]
         public virtual ActionResult Details(int year, string month, string day, string titleUrl)
         {

@@ -2,7 +2,6 @@
 using LR.WebUI.Infrastructure.Repositories;
 using LR.WebUI.ViewModels;
 using SX.WebCore;
-using System;
 using SX.WebCore.ViewModels;
 using LR.WebUI.Models;
 using System.Linq;
