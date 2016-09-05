@@ -51,7 +51,7 @@
                     <a href="@Url.Action("Index","Articles", new { aut = Model.User.NikName })">@Model.User.NikName</a>
                 </h5>
                 <div class="material__author-info--desc">
-                    Welcome to my Blog. My name is Vincent. My biggest passion if life is to travel around the world. I take photos everywhere I go to keep my memories alive.
+                    @Model.User.Description
                 </div>
                 <ul class="material__author-info--share-btns">
                     <li><a target="_blank" class="author-social" href="http://pencidesign.com"><i class="fa fa-globe"></i></a></li>

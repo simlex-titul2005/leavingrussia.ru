@@ -1,7 +1,121 @@
-﻿
+﻿@model SxExtantions.SxPagedCollection<VMArticle>
 @{
-    ViewBag.Title = "List";
+    var category = (SxVMMaterialCategory)ViewBag.Category;
+    var materialTag = (SxVMMaterialTag)ViewBag.Tag;
+
+    ViewBag.Title = ViewBag.Title ?? "Статьи";
+    ViewBag.H1 = ViewBag.H1 ??
+        category != null ? category.Title :
+        materialTag != null ? materialTag.Title : ViewBag.Title;
+
+    VMArticle item = null;
 }
+<div class="details-header">
+    @if (category != null)
+    {
+        <span>Категория:</span>
+    }
+    else if (materialTag != null)
+    {
+        <span>Тег:</span>
+    }
+    <h1>@ViewBag.H1</h1>
+</div>
 
-<h2>List</h2>
+@if (Model.Collection.Any())
+{
+    <div class="row">
+        @for (int i = 0; i < Model.Collection.Length; i++)
+        {
+            item = Model.Collection[i];
+            if (i == 0)
+            {
+                <div class="col-md-12">
+                    <article class="list-material first">
+                        @if (item.FrontPicture != null)
+                        {
+                            <div class="list-material__img">
+                                <img alt="@item.Title" src="@Url.Action("Picture", "Pictures", new { id = item.FrontPicture.Id })" />
+                            </div>
+                        }
 
+                        @if (item.Category != null)
+                        {
+                            <div class="list-material__category">
+                                <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Category.Title</a>
+                            </div>
+                        }
+
+                        <div class="list-material__title">
+                            <h2>
+                                <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Title</a>
+                            </h2>
+                        </div>
+
+                        <div class="list-material__user">
+                            <span>Автор: </span> <span class="list-material__user--name"><a href="@Url.Action("List", "Articles", new { aut=item.User.NikName})">@item.User.NikName</a></span>
+                        </div>
+
+                        <div class="list-material__fwd">
+                            @item.GetForewordFromHtml(600)
+                        </div>
+
+                        <div class="list-material__read-btn">
+                            <a href="@item.GetUrl(Url)" class="btn">Подробнее</a>
+                        </div>
+
+                        <div class="list-material__meta">
+                            <div class="list-material__meta-left">
+                                <ul class="list-unstyled list-inline">
+                                    <li class="calendar">
+                                        <i class="fa fa-calendar-o"></i> @item.DateOfPublication.ToString("MMMM d, yyyy")
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-comments-o"></i> Комментариев: @item.CommentsCount
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-material__meta-right">
+                                share buttons
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-6">
+                    <article class="list-material">
+                        @if (item.FrontPicture != null)
+                        {
+                            <div class="list-material__img">
+                                <a href="@item.GetUrl(Url)" style="background-image:url('@Url.Action("Picture", "Pictures", new { id = item.FrontPicture.Id })')"></a>
+                            </div>
+                        }
+
+                        @if (item.Category != null)
+                        {
+                            <div class="list-material__category">
+                                <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Category.Title</a>
+                            </div>
+                        }
+
+                        <div class="list-material__title">
+                            <h2>
+                                <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Title</a>
+                            </h2>
+                        </div>
+
+                        <div class="list-material__user">
+                            <span>Автор: </span> <span class="list-material__user--name"><a href="@Url.Action("List", "Articles", new { aut=item.User.NikName})">@item.User.NikName</a></span> <span class="list-material__user--date">@item.DateOfPublication.ToString("MMMM d, yyyy")</span>
+                        </div>
+
+                        <div class="list-material__fwd">
+                            @item.GetForewordFromHtml(300)
+                        </div>
+                    </article>
+                </div>
+            }
+        }
+    </div>
+}

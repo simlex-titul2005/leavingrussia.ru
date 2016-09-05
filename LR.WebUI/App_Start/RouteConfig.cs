@@ -21,6 +21,20 @@ namespace LR.WebUI
             );
 
             routes.MapRoute(
+                name: null,
+                url: "Articles",
+                defaults: new { controller = "Articles", action = "List", page=1, area = "" },
+                namespaces: _dafaultNamespaces
+            );
+
+            //routes.MapRoute(
+            //    name: null,
+            //    url: "{controller}/List/page{page}",
+            //    defaults: new { controller = "Articles", action = "Details", area = "" },
+            //    namespaces: _dafaultNamespaces
+            //);
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, area="" },

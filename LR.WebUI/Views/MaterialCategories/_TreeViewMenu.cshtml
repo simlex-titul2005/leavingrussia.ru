@@ -23,7 +23,7 @@
     @Html.SxTree(Model, new SxExtantions.SxTreeSettings<SxVMMaterialCategory>
 {
     FuncChildren = x => { return x.ChildCategories; },
-    FuncContent = x => { return "<a href=\"#\">" + x.Title + "</a>"; }
+    FuncContent = x => { return "<a href=\""+ Url.Action("List", "Articles", new { cat = x.Id }) + "\">"+x.Title+"</a>" ; }
 }, new { @class= "categories__list" })
 </aside>
 
