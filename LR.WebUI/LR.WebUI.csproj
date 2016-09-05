@@ -200,19 +200,6 @@
     <Content Include="content\static\bg.jpg" />
     <Content Include="content\static\incognito.jpg" />
     <Content Include="content\static\logo.png" />
-    <Content Include="content\static\temp\13712292_907698102687005_2080260736_n.jpg" />
-    <Content Include="content\static\temp\13731188_1412849788741985_989071069_n.jpg" />
-    <Content Include="content\static\temp\13741072_1134383363267451_809617021_n.jpg" />
-    <Content Include="content\static\temp\about-widget.jpg" />
-    <Content Include="content\static\temp\airplane-crash-780x516.jpg" />
-    <Content Include="content\static\temp\banner-header1.jpg" />
-    <Content Include="content\static\temp\first-post.jpg" />
-    <Content Include="content\static\temp\forest-585x390.jpg" />
-    <Content Include="content\static\temp\iceland-585x390.jpg" />
-    <Content Include="content\static\temp\iceland2-585x390.jpg" />
-    <Content Include="content\static\temp\lakekayak-585x390.jpg" />
-    <Content Include="content\static\temp\my-journey.jpg" />
-    <Content Include="content\static\temp\redwoods-585x390.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\Videos\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Videos\Index.cshtml" />
@@ -347,7 +334,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="packages.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_PreFooter.cshtml" />
     <Content Include="Views\Articles\_ReadingMaterial.cshtml" />
@@ -402,7 +388,6 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

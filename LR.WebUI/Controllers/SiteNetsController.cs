@@ -6,14 +6,14 @@ namespace LR.WebUI.Controllers
 {
     public sealed class SiteNetsController : SxSiteNetsController<DbContext>
     {
-        [ChildActionOnly]
+        [ChildActionOnly, AllowAnonymous]
         public ActionResult JoinUs()
         {
             var viewModel = MvcApplication.SiteNetsProvider.SiteNets;
             return PartialView("_JoinUs", viewModel);
         }
 
-        [ChildActionOnly]
+        [ChildActionOnly, AllowAnonymous]
         public ActionResult SocialGroups()
         {
             var viewModel = MvcApplication.SiteNetsProvider.SiteNets;
