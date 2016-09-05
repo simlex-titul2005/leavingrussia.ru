@@ -1,0 +1,21 @@
+﻿@model SxVMSiteNet[]
+@{
+    SxVMSiteNet item = null;
+}
+
+@if (Model.Any())
+{
+    <div class="social-groups">
+        <div class="container">
+            <ul>
+                @for (int i = 0; i < Model.Length; i++)
+                {
+                    item = Model[i];
+                    <li>
+                        <a href="@item.Url" target="_blank"><i class="@item.Net.LogoCssClass"></i><span>@item.Net.Name</span></a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}

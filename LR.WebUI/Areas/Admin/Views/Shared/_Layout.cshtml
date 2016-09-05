@@ -300,13 +300,16 @@
                                 </ul>
                             </li>
                         }
-                        @if (User.IsInRole("admin"))
+                        @if (User.IsInRole("smm"))
                         {
                             <li>
                                 <a href="javascript:void(0)"><i class="fa fa-globe fa-fw"></i> Соцсети<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="@Url.Action("Index", "Nets")"> Поддерживаемы сети</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "SiteNets")"> Сети сайта</a>
                                     </li>
                                     <li>
                                         <a href="@Url.Action("Index", "ShareButtons")"> Кнопки шар</a>

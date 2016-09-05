@@ -34,7 +34,7 @@
                     </div>
                     <div class="block__right">
                         @Html.Partial("_AboutUs")
-                        @Html.Partial("_JoinUs")
+                        @Html.Action("JoinUs", "SiteNets")
                         @Html.Action("Last", "Pictures", new { amount = 9 })
                         @Html.Action("Last", "Articles", new { amount = 5, mid = mid })
                         @Html.Action("TreeViewMenu", "MaterialCategories", new { mct = SX.WebCore.Enums.ModelCoreType.Article })

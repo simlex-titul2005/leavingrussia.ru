@@ -1,0 +1,21 @@
+﻿@model SxVMSiteNet[]
+@{
+    SxVMSiteNet item = null;
+}
+
+@if (Model.Any())
+{
+    <aside class="join-us">
+        <h4 class="green-header"><span class="green-header__arrow">Присоединяйся к нам!</span></h4>
+        <div class="join-us__icons">
+            <ul class="list-unstyled list-inline">
+                @for (int i = 0; i < Model.Length; i++)
+                {
+                    item = Model[i];
+                    <li><a href="@item.Url" target="_blank"><i class="@item.Net.LogoCssClass" aria-hidden="true"></i></a></li>
+                }
+            </ul>
+        </div>
+        <br />
+    </aside>
+}
