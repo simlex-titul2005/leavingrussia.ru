@@ -6,10 +6,10 @@
 
 @if (ViewBag.SeoInfoRedactInfo != null)
 {
-    <div class="alert alert-info">@ViewBag.SeoInfoRedactInfo</div>
+    <div class="alert alert-info message">@ViewBag.SeoInfoRedactInfo</div>
 }
 
-@using (Ajax.BeginForm("EditForMaterial", new { controller = "SeoTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "seo", OnBegin = "$('#btn-save-seo-tag').prepend('<i class=\"fa fa-spinner fa-spin\"></i>')", OnSuccess = "$('#seo-kw').sx_gv(); setTimeout(function(){$('.alert-info').fadeOut();}, 1000)" }))
+@using (Ajax.BeginForm("EditForMaterial", new { controller = "SeoTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "seo-block", OnBegin = "$('#btn-save-seo-tag').prepend('<i class=\"fa fa-spinner fa-spin\"></i>')", OnSuccess = "$('#seo-kw').sx_gv(); setTimeout(function(){$('.alert-info.message').fadeOut();}, 1000)" }))
 {
     @Html.HiddenFor(x => x.Id)
     @Html.HiddenFor(x => x.MaterialId)

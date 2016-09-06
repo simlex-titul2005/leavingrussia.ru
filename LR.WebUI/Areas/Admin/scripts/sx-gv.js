@@ -69,13 +69,14 @@
             });
 
             $this.on('click', 'th', function () {
-                if ($(this).hasClass('sx-gv_first-column')) return;
+                $th = $(this);
+                if ($th.hasClass('sx-gv_first-column') || $th.attr('data-enable-sorting')=='false') return;
 
-                $grid = $(this).closest('.sx-gv');
+                $grid = $th.closest('.sx-gv');
                 var page = $grid.find('.sx-gv__pager li.active a').data('page');
 
-                $order = $(this).find('.sx-gv__sort-arow');
-                var filelName = $(this).data('field-name');
+                $order = $th.find('.sx-gv__sort-arow');
+                var filelName = $th.data('field-name');
 
                 var direction = 'Asc';
                 if ($order.length == 1) {

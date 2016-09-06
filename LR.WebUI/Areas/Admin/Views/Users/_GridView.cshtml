@@ -10,12 +10,11 @@
         new SxExtantions.SxGridViewColumn<SxVMAppUser> { FieldName="Email", Template=(m)=> {
                 return string.Format("<a href=\"mailto:{0}\">{0}</a>", m.Email);
             }},
-        new SxExtantions.SxGridViewColumn<SxVMAppUser> { FieldName="RoleNames", Caption="Роли"},
         new SxExtantions.SxGridViewColumn<SxVMAppUser> { FieldName="IsOnline", Caption="Статус", Template=(u)=> {
                 return u.IsOnline?string.Format("<span class=\"badge\">online</span>"):null;
-            }}
+            }, EnableSorting=false}
     },
     EnableEditing = true,
-    EditRowUrl = (x) => { return Url.Action("Edit", "Users", new { id=x.Id}); },
+    EditRowUrl = (x) => { return Url.Action("Edit", "Users", new { id = x.Id }); },
     DataAjaxUrl = Url.Action("Index", "Users")
 })

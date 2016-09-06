@@ -42,14 +42,17 @@
     @if (!isNew)
     {
         <div role="tabpanel" class="tab-pane" id="tags-cloud">
-            @using (Ajax.BeginForm("Edit", new { controller = "MaterialTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "grid-material-tags", OnSuccess= "$('#seo-cloud form input[name=\"Id\"]').val(null)" }, new { @autocomplete = "off" }))
+            @using (Ajax.BeginForm("Edit", new { controller = "MaterialTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "grid-material-tags", OnSuccess= "$('#material-tags-form input[name=\"Title\"]').val('')" }, new { @autocomplete = "off", @id="material-tags-form" }))
             {
             @Html.AntiForgeryToken()
             <input type="hidden" id="MaterialId" name="MaterialId" value="@Model.Id" />
             <input type="hidden" id="ModelCoreType" name="ModelCoreType" value="@Model.ModelCoreType" />
-            <label for="Value">Новый тег облака</label> <span class="text-info">(максимально 4 слова)</span>
+            <div class="alert alert-info">
+                <p>В данном разделе Вы можете задать теги облака тегов материала</p>
+            </div>
+            <label for="Title">Новый тег облака</label> <span class="text-info">(максимально 100 знаков включая пробелы)</span>
             <div class="input-group">
-                <input type="text" name="Id" class="form-control" placeholder="Введите значение тега" />
+                <input type="text" name="Title" class="form-control" placeholder="Введите значение тега" />
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">Добавить</button>
                 </span>
@@ -64,10 +67,21 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="seo">
+            <h4>SEO параметры материала</h4>
+            <div class="alert alert-info">
+                <p>В данном разделе Вы можете задать SEO параметры материала</p>
+            </div>
+            <div id="seo-block"></div>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="mm-videos">
             <h4>Видео контент материала</h4>
+            <div class="alert alert-info">
+                <p>В данном разделе Вы можете добавить видео для материала</p>
+            </div>
+            <div class="alert alert-warning">
+                <p><b>Внимание!</b> В теле материала можно использовать только видео, привязанные в данном разделе</p>
+            </div>
             @Html.Partial("_NotMaterialVideos", Model)
             <div id="videos"></div>
             <br />
@@ -76,6 +90,12 @@
 
         <div role="tabpanel" class="tab-pane" id="mm-pictures">
             <h4>Фото контент материала</h4>
+            <div class="alert alert-info">
+                <p>В данном разделе Вы можете добавить фото для материала</p>
+            </div>
+            <div class="alert alert-warning">
+                <p><b>Внимание!</b> В теле материала можно использовать только фото, привязанные в данном разделе</p>
+            </div>
             @Html.Partial("_NotMaterialPictures", Model)
             <div id="pictures"></div>
             <br />
@@ -121,6 +141,12 @@
             $('#videos, #pictures, #not-mat-videos, #not-mat-pictures').sx_gv();
 
             //tags cloud
+            $('#tags-cloud').on('submit', '#material-tags-form', function(){
+                $input=$(this).find('input[name="Title"]');
+                if($input.val()=='')
+                    return false;
+            });
+
             $('a[href="#tags-cloud"]').on('show.bs.tab', function (e) {
                 $a = $(e.target);
 
@@ -155,7 +181,7 @@
                         $a.prepend('<i class="fa fa-spinner fa-spin tab-spinner"></i>');
                     },
                     success: function (result) {
-                        $('#seo').html(result);
+                        $('#seo-block').html(result);
                         $('#seo-kw').sx_gv();
                     },
                     complete:function(){

@@ -1,6 +1,5 @@
 ﻿@model SxVMMaterialTag[]
 @{
-    Layout = null;
     int mid = ViewBag.MaterialId;
     Enums.ModelCoreType mct = ViewBag.ModelCoreType;
 }
@@ -9,10 +8,11 @@
         new SxExtantions.SxGridViewSettings<SxVMMaterialTag>
         {
             Columns = new SxExtantions.SxGridViewColumn<SxVMMaterialTag>[]{
-                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Id", Caption ="Значение"
-            } },
+                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Id", Caption ="Идентификатор" },
+                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Title", Caption ="Значение" }
+            },
             DataAjaxUrl = Url.Action("Index", "MaterialTags", new { mid = mid, mct = mct }),
             EnableDeleting = true,
-            DeleteRowUrl = x => { return Url.Action("Delete", "MaterialTags", new { Id = x.Id, MaterialId = mid, ModelCoreType = mct }); }
+            DeleteRowUrl = x => { return Url.Action("Delete", "MaterialTags", new { Id = x.Id, ModelCoreType = mct, MaterialId=mid }); }
         }
     )

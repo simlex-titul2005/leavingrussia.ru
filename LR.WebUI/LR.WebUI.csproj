@@ -256,6 +256,7 @@
     <Content Include="Areas\Admin\Views\SiteNets\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SiteNets\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SiteNets\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteSettings\ReleaseNotes.cshtml" />
     <None Include="Properties\PublishProfiles\PROD.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>

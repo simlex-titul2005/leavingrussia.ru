@@ -12,6 +12,10 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<div class="alert alert-danger">
+    <b>Внимание!</b> Функционал пока не реализован. Решается вопрос о целесообразности внедрения в движок
+</div>
+
 @if (!isNew)
 {
     <div class="text-right">
@@ -31,8 +35,8 @@
         <li role="presentation"><a href="#banners" aria-controls="banners" role="tab" data-toggle="tab">Баннеры группы</a></li>
     }
 </ul>
-
 <br />
+
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="info">
         <form method="post" action="@Url.Action("Edit", "BannerGroups")">
@@ -60,6 +64,7 @@
 
     <div role="tabpanel" class="tab-pane" id="banners">
         <h4>Баннеры группы</h4>
+
         <div id="banners-block">
 
         </div>
