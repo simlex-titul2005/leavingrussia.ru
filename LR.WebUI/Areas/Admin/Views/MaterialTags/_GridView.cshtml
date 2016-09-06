@@ -8,8 +8,8 @@
         new SxExtantions.SxGridViewSettings<SxVMMaterialTag>
         {
             Columns = new SxExtantions.SxGridViewColumn<SxVMMaterialTag>[]{
-                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Id", Caption ="Идентификатор" },
-                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Title", Caption ="Значение" }
+                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Title", Caption ="Значение" },
+                new SxExtantions.SxGridViewColumn<SxVMMaterialTag>{ FieldName ="Id", Caption ="Идентификатор" }
             },
             DataAjaxUrl = Url.Action("Index", "MaterialTags", new { mid = mid, mct = mct }),
             EnableDeleting = true,
