@@ -8,3 +8,9 @@
 <div id="grid-articles">
     @Html.Partial("_GridView", Model)
 </div>
+
+@section scripts{
+    <script>
+        $('#grid-articles').sx_gv();
+    </script>
+}
