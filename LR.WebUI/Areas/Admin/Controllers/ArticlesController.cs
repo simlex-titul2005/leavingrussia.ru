@@ -9,7 +9,8 @@ namespace LR.WebUI.Areas.Admin.Controllers
     {
         static ArticlesController()
         {
-            Repo = new RepoArticle();
+            if(Repo==null || !(Repo is RepoArticle))
+                Repo = new RepoArticle();
         }
 
         public ArticlesController() : base(Enums.ModelCoreType.Article) { }

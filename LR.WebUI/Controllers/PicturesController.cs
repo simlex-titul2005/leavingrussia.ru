@@ -9,7 +9,7 @@ namespace LR.WebUI.Controllers
     {
         public PicturesController()
         {
-            if(Repo==null)
+            if(Repo==null || !(Repo is RepoPicture))
                 Repo = new RepoPicture();
         }
 
