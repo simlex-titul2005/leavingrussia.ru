@@ -4,7 +4,15 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<br />
+
+<div class="alert alert-info">
+    На данной странице Вы можете задать роли пользователей, используемые на сайте
+</div>
+
+<div class="alert alert-warning">
+    <b>Внимание!</b> Движок уже содержит набор ролей, необходимых для корректного функционирования
+</div>
+
 <div id="grid">
     @Html.Partial("_GridView", Model)
 </div>

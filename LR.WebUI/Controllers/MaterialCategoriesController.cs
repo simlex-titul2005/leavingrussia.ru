@@ -6,7 +6,7 @@ using System.Web.Mvc;
 namespace LR.WebUI.Controllers
 {
     [AllowAnonymous]
-    public sealed class MaterialCategoriesController : SxMaterialCategoriesController<DbContext, SxVMMaterialCategory>
+    public sealed class MaterialCategoriesController : SxMaterialCategoriesController<SxVMMaterialCategory, DbContext>
     {
         
     }

@@ -6,7 +6,7 @@
         this.each(function () {
             var $this = $(this);
 
-            $this.on('click', '.sx-gv__pager a', function () {
+            $this.on('click', '.sx-gv__pager li:not(.active) a', function () {
                 $a = $(this);
                 $("<i></i>").addClass('fa fa-spinner fa-spin').prependTo($a);
                 $grid = $a.closest('.sx-gv');

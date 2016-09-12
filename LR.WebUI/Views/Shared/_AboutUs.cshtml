@@ -2,10 +2,10 @@
     <h4 class="green-header"><span class="green-header__arrow">О нас</span></h4>
     <div class="about-us__img" style="background-image:url('/content/static/temp/about-widget.jpg');"></div>
     <div class="about-us__title">
-        <h2>leavingrussia.ru</h2>
+        <h2>@(global_asax.SiteSettingsProvider.Get(SX.WebCore.Resources.Settings.siteName)?.Value)</h2>
     </div>
     <div class="about-us__txt">
-        самый известный российский портал о местах России, которые мы незаслуженно забыли.
+        @Html.Raw(global_asax.SiteSettingsProvider.Get(SX.WebCore.Resources.Settings.siteDesc)?.Value)
     </div>
     <br />
 </aside>

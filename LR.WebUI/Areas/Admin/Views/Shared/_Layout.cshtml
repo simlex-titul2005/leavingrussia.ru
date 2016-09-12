@@ -358,9 +358,6 @@
                                     <li>
                                         <a href="@Url.Action("EditRobotsFile", new { controller= "Seo" })"><i class="fa fa-ship"></i> robot.txt</a>
                                     </li>
-                                    @*<li>
-                                        <a href="@Url.Action("Index", new { controller= "SeoWordCounter" })"><i class="fa fa-compress"></i> Счетчик слов</a>
-                                    </li>*@
                                     <li>
                                         <a href="@Url.Action("Index", new { controller= "BannedUrls" })"><i class="fa fa-ban"></i> Забаненные адреса</a>
                                     </li>
@@ -397,15 +394,6 @@
                                         <li>
                                             <a href="@Url.Action("GetLog", new { controller = "Logs", siteName = "game-exe" })"> Скачать лог</a>
                                         </li>
-                                    }
-                                    @{
-                                        var siteDomain = global_asax.SiteSettingsProvider.Get("siteDomain");
-                                        if (siteDomain != null)
-                                        {
-                                            <li>
-                                                <a href="@(string.Format("{0}/api/logs", global_asax.SiteSettingsProvider.Get("siteDomain")))"> Скачать лог сайта</a>
-                                            </li>
-                                        }
                                     }
                                 </ul>
                             </li>

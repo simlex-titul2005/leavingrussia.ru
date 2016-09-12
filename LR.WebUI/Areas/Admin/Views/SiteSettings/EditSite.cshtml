@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Настройки сайта";
 }
-
 @section styles{
     <link href="~/Areas/Admin/content/dist/css/lightbox.min.css" rel="stylesheet" />
     <style type="text/css">
@@ -12,7 +11,6 @@
         }
     </style>
 }
-
 <h2>@ViewBag.Title</h2>
 <br />
 @if (ViewBag.EditSiteSettingsMessage != null)
@@ -27,7 +25,6 @@
     @Html.HiddenFor(x => x.OldSiteBgPath)
     @Html.HiddenFor(x => x.OldSiteFaveiconPath)
     @Html.HiddenFor(x => x.OldSiteDesc)
-
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
@@ -45,11 +42,14 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
                 @Html.LabelFor(x => x.LogoPath, new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.LogoPath))
+                {
+                    <a style="margin-left:15px;" data-lightbox="roadtrip" data-title="aaa" data-toggle="tooltip" title="Помотреть картинку" href="@Url.Action("Picture", "Pictures", new { id = Model.LogoPath })"><i class="fa fa-picture-o"></i></a>
+                }
                 @Html.EditorFor(x => x.LogoPath, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите путь к изображению" } })
                 @Html.ValidationMessageFor(x => x.LogoPath)
             </div>
@@ -57,6 +57,10 @@
         <div class="col-sm-4">
             <div class="form-group">
                 @Html.LabelFor(x => x.SiteBgPath, new { @class = "control-label" })
+                @if (!string.IsNullOrEmpty(Model.SiteBgPath))
+                {
+                    <a style="margin-left:15px;" data-lightbox="roadtrip" data-title="aaa" data-toggle="tooltip" title="Помотреть картинку" href="@Url.Action("Picture", "Pictures", new { id = Model.SiteBgPath })"><i class="fa fa-picture-o"></i></a>
+                }
                 @Html.EditorFor(x => x.SiteBgPath, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите путь к файлу фона" } })
                 @Html.ValidationMessageFor(x => x.SiteBgPath)
             </div>
@@ -64,23 +68,24 @@
         <div class="col-sm-4">
             <div class="form-group">
                 @Html.LabelFor(x => x.SiteFaveiconPath, new { @class = "control-label" }) <span class="text-info"> (faveicon)</span>
+                @if (!string.IsNullOrEmpty(Model.SiteFaveiconPath))
+                {
+                    <a style="margin-left:15px;" data-lightbox="roadtrip" data-title="aaa" data-toggle="tooltip" title="Помотреть картинку" href="@Url.Action("Picture", "Pictures", new { id = Model.SiteFaveiconPath })"><i class="fa fa-picture-o"></i></a>
+                }
                 @Html.EditorFor(x => x.SiteFaveiconPath, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите путь к файлу фона" } })
                 @Html.ValidationMessageFor(x => x.SiteFaveiconPath)
             </div>
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(x => x.SiteDesc, new { @class = "control-label" })
         @Html.EditorFor(x => x.SiteDesc, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите описание сайта" } })
         @Html.ValidationMessageFor(x => x.SiteDesc)
     </div>
-
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Сохранить</button>
     </div>
 </form>
-
 @section scripts{
     <script src="~/bower_components/ckeditor/ckeditor.js"></script>
     <script src="~/Areas/Admin/content/dist/js/lightbox.min.js"></script>

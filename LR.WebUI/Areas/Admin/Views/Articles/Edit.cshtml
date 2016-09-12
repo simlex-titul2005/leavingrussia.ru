@@ -3,14 +3,11 @@
     var isNew = Model.Id == 0;
     ViewBag.Title = isNew ? "Добавить статью" : "Редактировать статью \"" + Model.Title + "\"";
 }
-
 @section styles{
     <link href="~/Areas/Admin/content/dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="~/Areas/Admin/content/dist/css/lightbox.min.css" rel="stylesheet" />
 }
-
 <h2>@ViewBag.Title</h2>
-
 @if (!isNew)
 {
     <div class="form-group">
@@ -23,7 +20,6 @@
         </div>
     </div>
 }
-
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Основные параметры</a></li>
     @if (!isNew)
@@ -37,26 +33,29 @@
 <br />
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="info">
+        <div class="alert alert-info">
+            Основные параметры материала
+        </div>
         @Html.EditorForModel(additionalViewData: new { IsNew = isNew })
     </div>
     @if (!isNew)
     {
         <div role="tabpanel" class="tab-pane" id="tags-cloud">
-            @using (Ajax.BeginForm("Edit", new { controller = "MaterialTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "grid-material-tags", OnSuccess= "$('#material-tags-form input[name=\"Title\"]').val('')" }, new { @autocomplete = "off", @id="material-tags-form" }))
+            @using (Ajax.BeginForm("Edit", new { controller = "MaterialTags" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "grid-material-tags", OnSuccess = "$('#material-tags-form input[name=\"Title\"]').val('')" }, new { @autocomplete = "off", @id = "material-tags-form" }))
             {
-            @Html.AntiForgeryToken()
-            <input type="hidden" id="MaterialId" name="MaterialId" value="@Model.Id" />
-            <input type="hidden" id="ModelCoreType" name="ModelCoreType" value="@Model.ModelCoreType" />
-            <div class="alert alert-info">
-                <p>В данном разделе Вы можете задать теги облака тегов материала</p>
-            </div>
-            <label for="Title">Новый тег облака</label> <span class="text-info">(максимально 100 знаков включая пробелы)</span>
-            <div class="input-group">
-                <input type="text" name="Title" class="form-control" placeholder="Введите значение тега" />
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">Добавить</button>
-                </span>
-            </div>
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="MaterialId" name="MaterialId" value="@Model.Id" />
+                <input type="hidden" id="ModelCoreType" name="ModelCoreType" value="@Model.ModelCoreType" />
+                <div class="alert alert-info">
+                    <p>В данном разделе Вы можете задать теги облака тегов материала</p>
+                </div>
+                <label for="Title">Новый тег облака</label> <span class="text-info">(максимально 100 знаков включая пробелы)</span>
+                <div class="input-group">
+                    <input type="text" name="Title" class="form-control" placeholder="Введите значение тега" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Добавить</button>
+                    </span>
+                </div>
             }
             <br />
             <div id="grid-material-tags"></div>
@@ -103,7 +102,6 @@
         </div>
     }
 </div>
-
 @section scripts{
     <script src="~/bower_components/ckeditor/ckeditor.js"></script>
     <script src="~/Areas/Admin/content/dist/js/moment-with-locales.min.js"></script>
@@ -112,7 +110,6 @@
     <script src="~/Areas/Admin/content/dist/js/jquery.validate.min.js"></script>
     <script src="~/Areas/Admin/content/dist/js/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Areas/Admin/content/dist/js/jquery.unobtrusive-ajax.min.js"></script>
-
     <script>
         if (CKEDITOR.instances['Html']) {
             CKEDITOR.remove(CKEDITOR.instances['Html']);

@@ -30,6 +30,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-right">
+                        @Html.Action("ForHeader", "SiteNets")
                         <ul class="list-unstyled list-inline top-menu__menu-right">
                             <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -47,14 +48,32 @@
                 <div class="col-md-4">
                     <div class="top-body__logo">
                         <a href="@Url.Action("Index", "Home")">
-                            <img alt="leavingrussia.ru" src="~/content/static/logo.png" />
+                            @{
+                                var logo = global_asax.SiteSettingsProvider.Get(SX.WebCore.Resources.Settings.siteLogoPath);
+                                var siteName = global_asax.SiteSettingsProvider.Get(SX.WebCore.Resources.Settings.siteName);
+                                if (logo != null && !string.IsNullOrEmpty(logo.Value))
+                                {
+                                    <img alt="@siteName" src="@Url.Action("Picture", "Pictures", new { id= logo.Value })" />
+                                }
+                                else
+                                {
+                                    <img alt="@siteName" src="/content/static/logo.png" />
+                                }
+                            }
                         </a>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="top-body__partners">
-                        <img src="/content/static/temp/banner-header1.jpg" />
-                    </div>
+                    @{
+                        var banners = global_asax.BannerProvider.GetPageBanners(Request.RawUrl);
+                        var topBanner = banners.FirstOrDefault(x => x.Place == SX.WebCore.SxBanner.BannerPlace.Top);
+                        if (topBanner != null)
+                        {
+                            <div class="top-body__banner-top">
+                                <img alt="@siteName" src="@Url.Action("Picture", "Pictures", new { id = topBanner.PictureId })" />
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </div>

@@ -2,7 +2,6 @@
 @{
     SxVMSiteNet item = null;
 }
-
 @if (Model.Any())
 {
     <aside class="join-us">
@@ -12,7 +11,9 @@
                 @for (int i = 0; i < Model.Length; i++)
                 {
                     item = Model[i];
-                    <li><a href="@item.Url" target="_blank"><i class="@item.Net.LogoCssClass" aria-hidden="true"></i></a></li>
+                    <li style="width: @(Math.Round((decimal)100/Model.Length, 2).ToString()+"%")">
+                        <a href="@item.Url" target="_blank"><i class="@item.Net.LogoCssClass" aria-hidden="true"></i></a>
+                    </li>
                 }
             </ul>
         </div>
