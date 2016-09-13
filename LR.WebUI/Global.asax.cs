@@ -16,7 +16,6 @@ namespace LR.WebUI
             var args = new SxApplicationEventArgs
             {
                 WebApiConfigRegister = WebApiConfig.Register,
-                RegisterRoutes = RouteConfig.RegisterRoutes,
                 LoggingRequest = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingRequest"]),
                 MapperConfigurationExpression = cfg => {
 
@@ -24,7 +23,10 @@ namespace LR.WebUI
                     cfg.CreateMap<Article, VMArticle>();
                     cfg.CreateMap<VMArticle, Article>();
 
-                }
+                },
+
+                //routes
+                DefaultControllerNamespaces= new string[] { "LR.WebUI.Controllers" }
             };
 
             base.Application_Start(sender, args);

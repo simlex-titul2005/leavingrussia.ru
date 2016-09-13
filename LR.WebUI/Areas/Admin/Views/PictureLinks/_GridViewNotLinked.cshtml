@@ -10,7 +10,11 @@
             new SxExtantions.SxGridViewSettings<SxVMPicture>
             {
                 Columns = new SxExtantions.SxGridViewColumn<SxVMPicture>[]{
-                    new SxExtantions.SxGridViewColumn<SxVMPicture>{FieldName="Caption", Caption="Название видео"}
+                    new SxExtantions.SxGridViewColumn<SxVMPicture>{FieldName="Id", Caption="Идентификатор фото"},
+                    new SxExtantions.SxGridViewColumn<SxVMPicture>{FieldName="Caption", Caption="Название фото"},
+                    new SxExtantions.SxGridViewColumn<SxVMPicture> { FieldName="Width", Caption="Просмотр", ColumnCssClass=x=> { return "col-cm"; }, Template=x=> {
+                        return string.Format("<a data-lightbox=\"roadtrip\" data-title=\"{1}\" data-toggle=\"tooltip\" title=\"Помотреть картинку\" href=\"/pictures/picture/{0}\"><i class=\"fa fa-picture-o\"></i></a>", x.Id, x.Caption);
+                    }, EnableSorting=false }
                 },
                 DataAjaxUrl = Url.Action("IndexNotlinked", "PictureLinks", new { mid = mid, mct = mct, fm = false }),
                 ShowSelectedCheckbox = true,
