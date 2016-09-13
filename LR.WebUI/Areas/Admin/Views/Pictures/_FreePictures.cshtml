@@ -9,7 +9,7 @@
         } },
         new SxExtantions.SxGridViewColumn<SxVMPicture>{FieldName="Id", Caption="Картинка", Template=(p)=> {
                 return string.Format("<a data-lightbox=\"roadtrip\" data-title=\"{1}\" data-toggle=\"tooltip\" title=\"Помотреть картинку\" href=\"/pictures/picture/{0}\"><i class=\"fa fa-picture-o\"></i></a>", p.Id, p.Caption);
-            }, ColumnCssClass=x=> {return "center-h-v"; } }
+            }, ColumnCssClass=x=> { return "col-cm"; } }
     },
     DataAjaxUrl=Url.Action("FreePictures", "Pictures"),
     ShowPagerInfo=true
