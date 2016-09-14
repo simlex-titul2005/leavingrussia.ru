@@ -1,0 +1,57 @@
+﻿@model SxVMAnalizatorSession[]
+@{
+    int? messageCode = ViewBag.MessageCode;
+    int? sessionId = ViewBag.SessionId;
+}
+
+@if (Model.Any())
+{
+    <div class="alert alert-info">
+        <div class="row">
+            <div class="col-md-10">
+                <p>На данной странице Вы можете обновить или просмотреть список страниц сайта</p>
+            </div>
+            <div class="col-md-2">
+                <div class="text-right">
+                    @using (Ajax.BeginForm("Create", new { controller = "AnalizatorSessions" }, new AjaxOptions { HttpMethod = "post", OnSuccess="loadSessions("+sessionId+")" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-info">Новая сессия</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4>Сессии</h4>
+
+    <div id="grid-sessions">
+        @Html.Partial("~/Areas/Admin/Views/AnalizatorSessions/_GridView.cshtml")
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <div class="row">
+            <div class="col-md-10">
+                <p>На данной странице Вы можете обновить или просмотреть список страниц сайта.Еще не создано ни одной сессии.При создании новой сессии произойдет сканирование сайта, что может занять некоторое время</p>
+            </div>
+            <div class="col-md-2">
+                <div class="text-right">
+                    @using(Ajax.BeginForm("Create", new { controller = "AnalizatorSessions" }, new AjaxOptions { HttpMethod = "post" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type = "submit" class="btn btn-warning">Новая сессия</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    if (messageCode.HasValue && messageCode == 1)
+    {
+        <div class="alert alert-danger">
+            <p>Ошибка создания сессии</p>
+        </div>
+    }
+}

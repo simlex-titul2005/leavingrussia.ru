@@ -260,6 +260,9 @@
     <Content Include="Areas\Admin\Views\AffiliateLinks\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AffiliateLinks\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AffiliateLinks\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Analizator\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Analizator\_Session.cshtml" />
+    <Content Include="Areas\Admin\Views\AnalizatorSessions\_GridView.cshtml" />
     <None Include="Properties\PublishProfiles\PROD.pubxml" />
     <Content Include="Web.config" />
   </ItemGroup>

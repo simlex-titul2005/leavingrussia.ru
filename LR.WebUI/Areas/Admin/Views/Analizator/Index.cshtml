@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Анализатор";
+    SxVMAnalizatorSession[] sessions = ViewBag.Sessions;
+    SxVMAnalizatorUrl[] urls = ViewBag.Urls;
+    string userId = ViewBag.UserId;
+    var hasSession = sessions != null && sessions.Any();
+
+    //1 - ошибка создания сессии
+    int? messageCode = ViewBag.MessageCode;
+
+    int? sessionId = ViewBag.SessionId;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#pages" aria-controls="pages" role="tab" data-toggle="tab">Страницы</a></li>
+    @if (hasSession)
+    {
+        <li role="presentation"><a href="#codes" aria-controls="codes" role="tab" data-toggle="tab">Коды ответов</a></li>
+    }
+</ul>
+<br />
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="pages">
+        <div id="pages-block">
+
+            <div id="sessions">
+                @Html.Partial("_Session", sessions)
+            </div>
+        
+        </div>
+    </div>
+
+    @if (hasSession)
+    {
+        <div role="tabpanel" class="tab-pane" id="codes">
+            <div id="codes-block">
+                <h3>Коды ответов страниц сайта</h3>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            
+            $('#grid-sessions').sx_gv();
+        });
+
+        function loadSessions(sessionId) {
+            $.ajax({
+                method: 'get',
+                url: '@Url.Action("Index", "AnalizatorSessions")',
+                data: { sessionId: sessionId },
+                success: function (result) {
+                    $('#grid-sessions').html(result);
+                }
+            });
+        }
+
+    </script>
+    }
