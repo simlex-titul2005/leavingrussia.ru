@@ -4,7 +4,7 @@ using SX.WebCore.ViewModels;
 
 namespace LR.WebUI.Areas.Admin.Controllers
 {
-    public sealed class MaterialCategoriesController : SxMaterialCategoriesController<SxVMMaterialCategory, DbContext>
+    public sealed class MaterialCategoriesController : SxMaterialCategoriesController<SxVMMaterialCategory>
     {
         
     }

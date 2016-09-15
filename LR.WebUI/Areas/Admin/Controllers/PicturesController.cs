@@ -4,7 +4,7 @@ using SX.WebCore.MvcControllers;
 
 namespace LR.WebUI.Areas.Admin.Controllers
 {
-    public sealed class PicturesController : SxPicturesController<DbContext>
+    public sealed class PicturesController : SxPicturesController
     {
         public PicturesController()
         {

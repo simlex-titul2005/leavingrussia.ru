@@ -17,7 +17,7 @@ namespace LR.WebUI.Areas.Admin
             context.MapRoute(
                 null,
                 "Admin",
-                new { controller="Home", action = "Index" }
+                new { controller = "Home", action = "Index" }
             );
 
             context.MapRoute(

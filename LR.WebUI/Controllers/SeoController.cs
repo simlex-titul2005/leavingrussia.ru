@@ -5,7 +5,7 @@ using static SX.WebCore.Enums;
 
 namespace LR.WebUI.Controllers
 {
-    public sealed class SeoController : SxSeoController<DbContext>
+    public sealed class SeoController : SxSeoController
     {
         public SeoController()
         {

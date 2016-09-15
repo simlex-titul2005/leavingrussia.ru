@@ -3,7 +3,7 @@ using SX.WebCore.MvcControllers;
 
 namespace LR.WebUI.Areas.Admin.Controllers
 {
-    public sealed class SeoTagsController : SxSeoTagsController<DbContext>
+    public sealed class SeoTagsController : SxSeoTagsController
     {
         
     }

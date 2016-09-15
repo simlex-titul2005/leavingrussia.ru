@@ -6,7 +6,7 @@ using static SX.WebCore.Enums;
 
 namespace LR.WebUI.Areas.Admin.Controllers
 {
-    public abstract class MaterialsController<TModel, TViewModel> : SxMaterialsController<TModel, TViewModel, DbContext>
+    public abstract class MaterialsController<TModel, TViewModel> : SxMaterialsController<TModel, TViewModel>
         where TModel : SxMaterial
         where TViewModel : SxVMMaterial, new()
     {

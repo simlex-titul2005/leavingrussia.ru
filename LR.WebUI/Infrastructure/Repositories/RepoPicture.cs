@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LR.WebUI.Infrastructure.Repositories
 {
-    public sealed class RepoPicture : SxRepoPicture<DbContext>
+    public sealed class RepoPicture : SxRepoPicture
     {
         public SxVMPicture[] Last(int amount=10)
         {

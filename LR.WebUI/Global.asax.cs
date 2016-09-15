@@ -8,7 +8,7 @@ using System;
 
 namespace LR.WebUI
 {
-    public class MvcApplication : SxMvcApplication<DbContext>
+    public class MvcApplication : SxMvcApplication
     {
         protected override void Application_Start(object sender, EventArgs e)
         {

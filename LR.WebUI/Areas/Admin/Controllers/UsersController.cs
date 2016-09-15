@@ -3,7 +3,7 @@ using SX.WebCore.MvcControllers;
 
 namespace LR.WebUI.Areas.Admin.Controllers
 {
-    public sealed class UsersController : SxUsersController<DbContext>
+    public sealed class UsersController : SxUsersController
     {
         
     }

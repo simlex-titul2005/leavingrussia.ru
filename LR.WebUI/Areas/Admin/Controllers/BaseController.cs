@@ -5,7 +5,7 @@ using System.Web.Mvc;
 namespace LR.WebUI.Areas.Admin.Controllers
 {
     [Authorize]
-    public abstract class BaseController : SxBaseController<DbContext>
+    public abstract class BaseController : SxBaseController
     {
         
     }

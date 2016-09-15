@@ -1,9 +1,8 @@
 ﻿using SX.WebCore.MvcControllers;
 
-namespace LR.WebUI.Areas.Admin.Controllers
+namespace SX.WebCore.Admin.Controllers
 {
     public sealed class AffiliateLinksController : SxAffiliateLinksController
     {
-        
     }
 }

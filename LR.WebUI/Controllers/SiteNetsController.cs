@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace LR.WebUI.Controllers
 {
-    public sealed class SiteNetsController : SxSiteNetsController<DbContext>
+    public sealed class SiteNetsController : SxSiteNetsController
     {
         [ChildActionOnly, AllowAnonymous]
         public ActionResult ForHeader()

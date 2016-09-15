@@ -10,7 +10,7 @@ using System.Text;
 
 namespace LR.WebUI.Infrastructure.Repositories
 {
-    public sealed class RepoArticle : SxRepoMaterial<Article, VMArticle, DbContext>
+    public sealed class RepoArticle : SxRepoMaterial<Article, VMArticle>
     {
         public RepoArticle() : base(Enums.ModelCoreType.Article) { }
 

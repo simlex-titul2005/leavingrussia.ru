@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using LR.WebUI.Infrastructure;
+using Microsoft.AspNet.Identity.Owin;
+using System.Web;
+using System.Web.Mvc;
 
 namespace LR.WebUI.Controllers
 {

@@ -3,7 +3,7 @@ using SX.WebCore.MvcControllers;
 
 namespace LR.WebUI.Controllers
 {
-    public sealed class CommentsController : SxCommentsController<DbContext>
+    public sealed class CommentsController : SxCommentsController
     {
        
     }
