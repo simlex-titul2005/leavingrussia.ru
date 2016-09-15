@@ -5,7 +5,6 @@ using SX.WebCore.Managers;
 using SX.WebCore.MvcApplication;
 using SX.WebCore.ViewModels;
 using System;
-using System.Configuration;
 
 namespace LR.WebUI
 {
@@ -16,7 +15,6 @@ namespace LR.WebUI
             var args = new SxApplicationEventArgs
             {
                 WebApiConfigRegister = WebApiConfig.Register,
-                LoggingRequest = Convert.ToBoolean(ConfigurationManager.AppSettings["LoggingRequest"]),
                 MapperConfigurationExpression = cfg => {
 
                     //article

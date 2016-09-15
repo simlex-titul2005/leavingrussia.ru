@@ -12,7 +12,7 @@ namespace LR.WebUI.Controllers
     {
         static ArticlesController()
         {
-            if (Repo == null)
+            if (Repo == null || !(Repo is RepoArticle))
                 Repo = new RepoArticle();
         }
 
