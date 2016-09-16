@@ -33,8 +33,10 @@ function createCss() {
        'less/site.less'
     ])
         .pipe(less())
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
+        //.pipe(cleanCSS({ compatibility: 'ie8' }))
+        .pipe(cleanCSS())
+        //.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
+        .pipe(autoprefixer('last 2 version'))
         .pipe(concat('sitecss.css'));
 
     var cssStream = gulp.src([
@@ -90,8 +92,10 @@ function createCss_admin()
        'areas/admin/less/sx-tv.less'
     ])
         .pipe(less())
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
+        //.pipe(cleanCSS({ compatibility: 'ie8' }))
+        .pipe(cleanCSS())
+        //.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
+        .pipe(autoprefixer('last 2 version'))
         .pipe(concat('sitecss.css'));
 
     var cssStream = gulp.src([
@@ -199,7 +203,6 @@ function createJs_admin()
     //by one js
     gulp.src([
         'bower_components/jquery-validation/dist/jquery.validate.min.js',
-        'bower_components/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js',
         'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js',
         'bower_components/lightbox2/dist/js/lightbox.min.js',
         'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',

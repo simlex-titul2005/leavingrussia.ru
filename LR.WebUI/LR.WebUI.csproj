@@ -4,6 +4,8 @@
   <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <MvcBuildViews Condition="'$(Configuration)'=='Debug'">false</MvcBuildViews>
+    <MvcBuildViews Condition="'$(Configuration)'=='Release'">true</MvcBuildViews>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
@@ -188,7 +190,6 @@
     <Content Include="Areas\Admin\content\dist\images\prev.png" />
     <Content Include="Areas\Admin\content\dist\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Areas\Admin\content\dist\js\jquery.signalR.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Areas\Admin\content\dist\js\jquery.validate.min.js" />
     <Content Include="Areas\Admin\content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Admin\content\dist\js\lightbox.min.js" />
@@ -206,65 +207,7 @@
     <Content Include="content\static\incognito.jpg" />
     <Content Include="content\static\logo.png" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Admin\Views\Videos\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Videos\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Videos\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Nets\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Nets\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\ShareButtons\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ShareButtons\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ShareButtons\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Boolean.cshtml" />
-    <Content Include="Areas\Admin\Views\SeoTags\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SeoTags\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SeoTags\_EditForMaterial.cshtml" />
-    <Content Include="Areas\Admin\Views\SeoTags\_GeneralEdit.cshtml" />
-    <Content Include="Areas\Admin\Views\SeoTags\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\SeoKeywords\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Redirects\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Redirects\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Redirects\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Seo\EditRobotsFile.cshtml" />
-    <Content Include="Areas\Admin\Views\BannedUrls\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\BannedUrls\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\BannedUrls\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\SiteSettings\EditSite.cshtml" />
-    <Content Include="Areas\Admin\Views\Valutes\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Valutes\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\MaterialCategories\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\MaterialCategories\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\MaterialCategories\_TreeView.cshtml" />
-    <Content Include="Areas\Admin\Views\MaterialCategories\_TreeViewEditable.cshtml" />
-    <Content Include="Areas\Admin\Views\MaterialCategories\_TreeViewMenu.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\EditDate.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MaterialCategoryLookupGrid.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\PicturesLookupGrid.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Articles\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Articles\EditorTemplates\VMArticle.cshtml" />
-    <Content Include="Areas\Admin\Views\MaterialTags\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\VideoLinks\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\VideoLinks\_GridViewNotLinked.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_NotMaterialVideos.cshtml" />
-    <Content Include="Areas\Admin\Views\PictureLinks\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\PictureLinks\_GridViewNotLinked.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_NotMaterialPictures.cshtml" />
-    <Content Include="Areas\Admin\Views\Banners\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Banners\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Banners\_FindGridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Banners\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Banners\_GroupBanners.cshtml" />
-    <Content Include="Areas\Admin\Views\BannerGroups\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\BannerGroups\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\BannerGroups\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\SiteNets\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SiteNets\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SiteNets\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\SiteSettings\ReleaseNotes.cshtml" />
-    <Content Include="Areas\Admin\Views\AffiliateLinks\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AffiliateLinks\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AffiliateLinks\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\Analizator\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Analizator\_Session.cshtml" />
     <Content Include="Areas\Admin\Views\AnalizatorSessions\_GridView.cshtml" />
@@ -272,6 +215,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -346,9 +291,6 @@
     <Content Include="Views\Articles\_Last.cshtml" />
     <Content Include="Views\MaterialCategories\_Categories.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_PreFooter.cshtml" />
     <Content Include="Views\Articles\_ReadingMaterial.cshtml" />
     <Content Include="Views\Articles\_Popular.cshtml" />
@@ -359,26 +301,6 @@
     <Content Include="Views\Articles\_ForHome.cshtml" />
     <Content Include="Views\Articles\_Gallery.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\Pictures\AddMany.cshtml" />
-    <Content Include="Areas\Admin\Views\Pictures\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Pictures\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Pictures\_FindGridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Pictures\_FreePictures.cshtml" />
-    <Content Include="Areas\Admin\Views\Pictures\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\UserRoles\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\UserRoles\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\UserRoles\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\_UserInfo.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\_UserReports.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\_UserRoles.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\_UsersOnSite.cshtml" />
-    <Content Include="Areas\Admin\Views\Requests\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Requests\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Statistics\UserLogins.cshtml" />
-    <Content Include="Areas\Admin\Views\Statistics\_UserLoginsGridView.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Shared\_LikeMaterials.cshtml" />
     <Content Include="Views\Comments\_Edit.cshtml" />
@@ -404,7 +326,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Logs\" />
     <Folder Include="Views\Seo\" />
   </ItemGroup>
   <PropertyGroup>

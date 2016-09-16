@@ -1,5 +1,4 @@
-﻿using LR.WebUI.Infrastructure;
-using SX.WebCore.MvcControllers;
+﻿using SX.WebCore.MvcControllers.Abstract;
 using System.Web.Mvc;
 
 namespace LR.WebUI.Areas.Admin.Controllers

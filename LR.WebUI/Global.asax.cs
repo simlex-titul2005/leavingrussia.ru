@@ -1,6 +1,4 @@
 ﻿using LR.WebUI.Infrastructure;
-using LR.WebUI.Models;
-using LR.WebUI.ViewModels;
 using SX.WebCore.Managers;
 using SX.WebCore.MvcApplication;
 using SX.WebCore.ViewModels;
@@ -14,17 +12,14 @@ namespace LR.WebUI
         {
             var args = new SxApplicationEventArgs
             {
+                GetDbContextInstance = () => { return new DbContext(); },
                 WebApiConfigRegister = WebApiConfig.Register,
-                MapperConfigurationExpression = cfg => {
-
-                    //article
-                    cfg.CreateMap<Article, VMArticle>();
-                    cfg.CreateMap<VMArticle, Article>();
-
-                },
+                MapperConfigurationExpression = cfg => { AutoMapperConfig.Register(cfg); },
 
                 //routes
-                DefaultControllerNamespaces= new string[] { "LR.WebUI.Controllers" }
+                DefaultControllerNamespaces= new string[] { "LR.WebUI.Controllers" },
+                PreRouteAction= RouteConfig.PreRouteAction,
+                PostRouteAction=RouteConfig.PostRouteAction
             };
 
             base.Application_Start(sender, args);
@@ -35,15 +30,15 @@ namespace LR.WebUI
         {
             get
             {
-                return (SxVMMaterial)AppCache.Get("CACHE_READING_MATERIAL");
+                return CacheProvider.Get<SxVMMaterial>("CACHE_READING_MATERIAL");
             }
             set
             {
-                var data = (SxVMMaterial)AppCache.Get("CACHE_READING_MATERIAL");
+                var data = CacheProvider.Get<SxVMMaterial>("CACHE_READING_MATERIAL");
                 if(data==null)
                     lock(_readingMaterialLocker)
                     {
-                        AppCache.Add("CACHE_READING_MATERIAL", value, SxCacheExpirationManager.GetExpiration(minutes: 1));
+                        CacheProvider.Set("CACHE_READING_MATERIAL", value, 1);
                     }
             }
         }
