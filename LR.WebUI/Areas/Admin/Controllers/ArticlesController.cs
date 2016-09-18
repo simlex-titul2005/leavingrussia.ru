@@ -2,17 +2,21 @@
 using LR.WebUI.Models;
 using LR.WebUI.ViewModels;
 using SX.WebCore;
+using SX.WebCore.Repositories;
 
 namespace LR.WebUI.Areas.Admin.Controllers
 {
     public sealed class ArticlesController : MaterialsController<Article, VMArticle>
     {
-        static ArticlesController()
-        {
-            if(Repo==null || !(Repo is RepoArticle))
-                Repo = new RepoArticle();
-        }
-
+        private static RepoArticle _repo = new RepoArticle();
         public ArticlesController() : base(Enums.ModelCoreType.Article) { }
+
+        public sealed override SxRepoMaterial<Article, VMArticle> Repo
+        {
+            get
+            {
+                return _repo;
+            }
+        }
     }
 }

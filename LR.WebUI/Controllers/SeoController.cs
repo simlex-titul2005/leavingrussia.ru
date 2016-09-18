@@ -1,5 +1,4 @@
-﻿using LR.WebUI.Infrastructure;
-using LR.WebUI.ViewModels;
+﻿using LR.WebUI.ViewModels;
 using SX.WebCore.MvcControllers;
 using static SX.WebCore.Enums;
 
@@ -7,12 +6,15 @@ namespace LR.WebUI.Controllers
 {
     public sealed class SeoController : SxSeoController
     {
-        public SeoController()
+        protected override System.Func<dynamic, string> SeoItemUrlFunc
         {
-            SeoItemUrlFunc = SeoItemUrl;
+            get
+            {
+                return model => { return SeoItemUrlFunc(model); };
+            }
         }
 
-        public string SeoItemUrl(dynamic model)
+        private string getSeoItemUrl(dynamic model)
         {
             var mct = (ModelCoreType)model.ModelCoreType;
             switch (mct)

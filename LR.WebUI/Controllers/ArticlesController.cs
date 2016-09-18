@@ -5,18 +5,22 @@ using SX.WebCore;
 using SX.WebCore.ViewModels;
 using LR.WebUI.Models;
 using System.Linq;
+using SX.WebCore.Repositories;
 
 namespace LR.WebUI.Controllers
 {
     public sealed class ArticlesController : MaterialsController<Article, VMArticle>
     {
-        static ArticlesController()
-        {
-            if (Repo == null || !(Repo is RepoArticle))
-                Repo = new RepoArticle();
-        }
-
+        private static RepoArticle _repo = new RepoArticle();
         public ArticlesController() : base(Enums.ModelCoreType.Article) { }
+
+        public sealed override SxRepoMaterial<Article, VMArticle> Repo
+        {
+            get
+            {
+                return _repo;
+            }
+        }
 
         [ChildActionOnly]
         public override PartialViewResult Last(Enums.ModelCoreType? mct = null, int amount = 5, int? mid=null)
