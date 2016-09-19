@@ -175,7 +175,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\content\dist\css\bootstrap-datetimepicker.min.css" />
-    <Content Include="Areas\Admin\content\dist\css\lightbox.min.css" />
+    <Content Include="Areas\Admin\content\dist\css\lightbox.min.css">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>lightbox.min.generated.cs</LastGenOutput>
+    </Content>
     <Content Include="Areas\Admin\content\dist\css\morris.css" />
     <Content Include="Areas\Admin\content\dist\css\site.min.css" />
     <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.eot" />
@@ -212,7 +215,9 @@
     <Content Include="Areas\Admin\Views\Analizator\_Session.cshtml" />
     <Content Include="Areas\Admin\Views\AnalizatorSessions\_GridView.cshtml" />
     <None Include="Properties\PublishProfiles\PROD.pubxml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperConfig.cs" />
