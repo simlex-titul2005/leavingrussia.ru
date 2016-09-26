@@ -17,6 +17,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(ViewBag.Title == null ? "leavingrussia.ru" : ViewBag.Title + " | leavingrussia.ru")</title>
+    
+    <link href="@Url.Action("Css", "StaticContent", new { name="bootstrap"})" rel="stylesheet" />
+    <link href="@Url.Action("Css", "StaticContent", new { name="font-awesome"})" rel="stylesheet" />
     <link href="~/content/dist/css/site.min.css" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
@@ -45,9 +48,11 @@
         @Html.Partial("_PreFooter")
         @Html.Partial("_Footer")
     </div>
+    <script src="@Url.Action("Js", "StaticContent", new { name="jquery"})"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name="bootstrap"})"></script>
     <script src="~/content/dist/js/site.min.js"></script>
-    <script src="~/content/dist/js/jquery.validate.min.js"></script>
-    <script src="~/content/dist/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name="jquery.validate"})"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name="jquery.validate.unobtrusive"})"></script>
     @RenderSection("scripts", false)
 </body>
 </html>

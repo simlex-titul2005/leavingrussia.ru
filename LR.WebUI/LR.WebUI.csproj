@@ -196,14 +196,11 @@
     <Content Include="Areas\Admin\scripts\sx-gv.js" />
     <Content Include="Areas\Admin\scripts\sx-gvl.js" />
     <Content Include="content\dist\css\site.min.css" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.svg" />
-    <Content Include="content\dist\js\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="content\dist\js\jquery.validate.min.js" />
-    <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
     <Content Include="content\static\bg.jpg" />
     <Content Include="content\static\incognito.jpg" />
     <Content Include="content\static\logo.png" />
+    <Content Include="content\static\temp\about-widget.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.ttf" />
@@ -273,6 +270,7 @@
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\SeoController.cs" />
     <Compile Include="Controllers\SiteNetsController.cs" />
+    <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -292,11 +290,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.eot" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.ttf" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.woff" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.woff2" />
-    <Content Include="content\dist\fonts\FontAwesome.otf" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_AboutUs.cshtml" />
@@ -345,6 +338,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\SeoKeywords\" />
     <Folder Include="Views\Seo\" />
+    <Folder Include="Views\StaticContent\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
