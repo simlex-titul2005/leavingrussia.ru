@@ -10,7 +10,7 @@ namespace LR.WebUI.Controllers
         {
             get
             {
-                return model => { return SeoItemUrlFunc(model); };
+                return getSeoItemUrl;
             }
         }
 
@@ -20,7 +20,7 @@ namespace LR.WebUI.Controllers
             switch (mct)
             {
                 case ModelCoreType.Article:
-                    return new VMArticle { DateCreate = model.DateCreate, TitleUrl = model.TitleUrl }.GetUrl(Url);
+                    return new VMArticle { DateCreate = model.DateCreate, TitleUrl = model.TitleUrl, ModelCoreType = mct }.GetUrl(Url); ;
                 default:
                     return null;
             }

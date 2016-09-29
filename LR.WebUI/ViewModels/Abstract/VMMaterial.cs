@@ -6,7 +6,7 @@ namespace LR.WebUI.ViewModels.Abstract
 {
     public abstract class VMMaterial : SxVMMaterial
     {
-        public sealed override string GetUrl(UrlHelper urlHelper)
+        public override string GetUrl(UrlHelper urlHelper)
         {
             switch(ModelCoreType)
             {
