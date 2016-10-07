@@ -9,7 +9,7 @@ namespace LR.WebUI.Areas.Admin.Controllers
     public sealed class ArticlesController : MaterialsController<Article, VMArticle>
     {
         private static RepoArticle _repo = new RepoArticle();
-        public ArticlesController() : base(Enums.ModelCoreType.Article) { }
+        public ArticlesController() : base((byte)Enums.ModelCoreType.Article) { }
 
         public sealed override SxRepoMaterial<Article, VMArticle> Repo
         {

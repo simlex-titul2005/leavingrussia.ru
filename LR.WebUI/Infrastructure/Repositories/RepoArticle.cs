@@ -12,7 +12,7 @@ namespace LR.WebUI.Infrastructure.Repositories
 {
     public sealed class RepoArticle : SxRepoMaterial<Article, VMArticle>
     {
-        public RepoArticle() : base(Enums.ModelCoreType.Article) { }
+        public RepoArticle() : base((byte)Enums.ModelCoreType.Article) { }
 
         public VMArticle[] ForHome(int amount=11)
         {
@@ -85,7 +85,7 @@ ORDER BY dm.DateOfPublication DESC");
             }
         }
 
-        public override VMArticle[] Last(Enums.ModelCoreType? mct = Enums.ModelCoreType.Article, int amount = 5, int? mid=null)
+        public VMArticle[] Last(byte? mct = (byte)Enums.ModelCoreType.Article, int amount = 5, int? mid=null)
         {
             var query = new StringBuilder();
             query.Append(@"SELECT TOP(@amount) dm.*, dmc.*, anu.*, dp.Id, dp.Caption
@@ -109,7 +109,7 @@ ORDER BY dm.DateOfPublication DESC");
             }
         }
 
-        public override VMArticle[] GetPopular(Enums.ModelCoreType mct, int? mid = null, int amount = 10)
+        public override VMArticle[] GetPopular(byte mct, int? mid = null, int amount = 10)
         {
             var query = new StringBuilder();
             query.Append(@"SELECT TOP(@amount) dm.*, dmc.*, anu.*, dp.Id, dp.Caption

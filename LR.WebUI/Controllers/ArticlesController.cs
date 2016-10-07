@@ -12,7 +12,7 @@ namespace LR.WebUI.Controllers
     public sealed class ArticlesController : MaterialsController<Article, VMArticle>
     {
         private static RepoArticle _repo = new RepoArticle();
-        public ArticlesController() : base(Enums.ModelCoreType.Article) { }
+        public ArticlesController() : base((byte)Enums.ModelCoreType.Article) { }
 
         public sealed override SxRepoMaterial<Article, VMArticle> Repo
         {
@@ -23,9 +23,9 @@ namespace LR.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public override PartialViewResult Last(Enums.ModelCoreType? mct = null, int amount = 5, int? mid=null)
+        public override PartialViewResult Last(byte? mct = null, int amount = 5, int? mid=null)
         {
-            var viewModel = Repo.Last(Enums.ModelCoreType.Article, amount, mid);
+            var viewModel = Repo.Last((byte)Enums.ModelCoreType.Article, amount, mid);
             return PartialView("_Last", viewModel);
         }
 
