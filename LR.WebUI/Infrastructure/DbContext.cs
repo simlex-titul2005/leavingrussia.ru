@@ -12,6 +12,8 @@ namespace LR.WebUI.Infrastructure
 
         public new DbSet<News> News { get; set; }
 
+        public new DbSet<SiteService> SiteServices { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
