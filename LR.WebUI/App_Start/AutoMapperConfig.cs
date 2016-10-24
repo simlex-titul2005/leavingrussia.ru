@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LR.WebUI.Models;
 using LR.WebUI.ViewModels;
+using SX.WebCore.ViewModels;
 
 namespace LR.WebUI
 {
@@ -11,6 +12,7 @@ namespace LR.WebUI
             //article
             cfg.CreateMap<Article, VMArticle>();
             cfg.CreateMap<VMArticle, Article>();
+            cfg.CreateMap<SxVMMaterial, VMArticle>();
         }
     }
 }

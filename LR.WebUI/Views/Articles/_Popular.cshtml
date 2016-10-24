@@ -1,6 +1,6 @@
-﻿@model VMArticle[]
+﻿@model VMMaterial[]
 @{
-    VMArticle item = null;
+    VMMaterial item = null;
 }
 
 @if (Model.Any())
@@ -10,13 +10,14 @@
             @for (int i = 0; i < Model.Length; i++)
             {
                 item = Model[i];
+                var url = item.GetUrl(Url);
                 <li class="last-materials__item">
                     <div class="last-materials__item-img" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId })')">
-                        <a href="@item.GetUrl(Url)"></a>
+                        <a href="@url"></a>
                     </div>
                     <div class="last-materials__item-content">
                         <h4 class="last-materials__item-title">
-                            <a href="@item.GetUrl(Url)">@item.Title</a>
+                            <a href="@url">@item.Title</a>
                         </h4>
                         <div class="last-materials__item-date">@item.DateOfPublication.ToString("MMMM d, yyyy")</div>
                     </div>

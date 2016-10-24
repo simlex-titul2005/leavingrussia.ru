@@ -1,5 +1,4 @@
-﻿using SX.WebCore;
-using SX.WebCore.ViewModels;
+﻿using SX.WebCore.ViewModels;
 using System.Web.Mvc;
 
 namespace LR.WebUI.ViewModels.Abstract
@@ -10,9 +9,9 @@ namespace LR.WebUI.ViewModels.Abstract
         {
             switch(ModelCoreType)
             {
-                case (byte)Enums.ModelCoreType.Article:
+                case 1:
                     return urlHelper.Action("Details", "Articles", new { year = DateCreate.Year, month = DateCreate.Month.ToString("00"), day = DateCreate.Day.ToString("00"), titleUrl = TitleUrl });
-                case (byte)Enums.ModelCoreType.News:
+                case 2:
                     return urlHelper.Action("Details", "News", new { year = DateCreate.Year, month = DateCreate.Month.ToString("00"), day = DateCreate.Day.ToString("00"), titleUrl = TitleUrl });
                 default:
                     return "#";

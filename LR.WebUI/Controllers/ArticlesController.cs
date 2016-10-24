@@ -25,22 +25,8 @@ namespace LR.WebUI.Controllers
         [ChildActionOnly]
         public override PartialViewResult Last(byte? mct = null, int amount = 5, int? mid=null)
         {
-            var viewModel = Repo.Last((byte)Enums.ModelCoreType.Article, amount, mid);
+            var viewModel = Repo.Last(MvcApplication.ModelCoreTypeProvider[nameof(Article)], amount, mid);
             return PartialView("_Last", viewModel);
-        }
-
-        [ChildActionOnly]
-        public PartialViewResult ReadingMaterial()
-        {
-            var viewModel = MvcApplication.ReadingMaterial ?? Repo.Last(mct: ModelCoreType, amount:1, mid:null).FirstOrDefault() ?? new VMArticle() { Html="Отсутсвуют данные БД"};
-            return PartialView("_ReadingMaterial", viewModel);
-        }
-
-        [ChildActionOnly]
-        public sealed override PartialViewResult Popular(int? mid = null, int amount = 4)
-        {
-            var viewModel = Repo.GetPopular(ModelCoreType, mid, amount);
-            return PartialView("_Popular", viewModel);
         }
 
         [ChildActionOnly]

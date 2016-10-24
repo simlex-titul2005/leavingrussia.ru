@@ -174,52 +174,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\content\dist\css\bootstrap-datetimepicker.min.css" />
-    <Content Include="Areas\Admin\content\dist\css\lightbox.min.css" />
-    <Content Include="Areas\Admin\content\dist\css\morris.css" />
-    <Content Include="Areas\Admin\content\dist\css\site.min.css" />
-    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.svg" />
-    <Content Include="Areas\Admin\content\dist\images\close.png" />
-    <Content Include="Areas\Admin\content\dist\images\loading.gif" />
-    <Content Include="Areas\Admin\content\dist\images\next.png" />
-    <Content Include="Areas\Admin\content\dist\images\prev.png" />
-    <Content Include="Areas\Admin\content\dist\js\bootstrap-datetimepicker.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\jquery.signalR.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\jquery.validate.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\lightbox.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\moment-with-locales.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\morris.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\raphael.min.js" />
-    <Content Include="Areas\Admin\content\dist\js\site.min.js" />
-    <Content Include="Areas\Admin\scripts\site.js" />
-    <Content Include="Areas\Admin\scripts\sx-gv.js" />
-    <Content Include="Areas\Admin\scripts\sx-gvl.js" />
     <Content Include="content\dist\css\site.min.css" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.svg" />
-    <Content Include="content\dist\js\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="content\dist\js\jquery.validate.min.js" />
-    <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
     <Content Include="content\static\bg.jpg" />
     <Content Include="content\static\incognito.jpg" />
     <Content Include="content\static\logo.png" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.eot" />
-    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.woff" />
-    <Content Include="Areas\Admin\content\dist\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Areas\Admin\content\dist\fonts\FontAwesome.otf" />
-    <Content Include="Areas\Admin\less\colors.less" />
-    <Content Include="Areas\Admin\less\sb-admin-2.less" />
-    <Content Include="Areas\Admin\less\site.less" />
-    <Content Include="Areas\Admin\less\sizes.less" />
-    <Content Include="Areas\Admin\less\sx-gv.less" />
-    <Content Include="Areas\Admin\less\sx-gvl.less" />
-    <Content Include="Areas\Admin\less\sx-tv.less" />
-    <Content Include="Areas\Admin\Views\AnalizatorSessions\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\Analizator\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Analizator\_Session.cshtml" />
     <Content Include="Areas\Admin\Views\Articles\EditorTemplates\VMArticle.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Properties\PublishProfiles\PROD.pubxml" />
@@ -241,11 +201,14 @@
     <Compile Include="Areas\Admin\Controllers\BannerGroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GraphicsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaterialCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaterialsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaterialTagsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NetsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PictureLinksController.cs" />
     <Compile Include="Areas\Admin\Controllers\PicturesController.cs" />
@@ -273,6 +236,7 @@
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\SeoController.cs" />
     <Compile Include="Controllers\SiteNetsController.cs" />
+    <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,7 +246,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\News.cs" />
-    <Compile Include="Models\SiteServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Abstract\VMMaterial.cs" />
     <Compile Include="ViewModels\VMArticle.cs" />
@@ -293,11 +256,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.eot" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.ttf" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.woff" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.woff2" />
-    <Content Include="content\dist\fonts\FontAwesome.otf" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_AboutUs.cshtml" />
@@ -339,9 +297,7 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Seo\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

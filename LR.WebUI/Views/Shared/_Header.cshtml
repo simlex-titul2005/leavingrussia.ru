@@ -49,11 +49,11 @@
                     <div class="top-body__logo">
                         <a href="@Url.Action("Index", "Home")">
                             @{
-                                var logo = global_asax.SiteSettingsProvider.Get(SX.WebCore.Resources.Settings.siteLogoPath);
-                                var siteName = global_asax.SiteSettingsProvider.Get(SX.WebCore.Resources.Settings.siteName);
-                                if (logo != null && !string.IsNullOrEmpty(logo.Value))
+                                var logo = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.siteLogoPath]?.Value;
+                                var siteName = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.siteName]?.Value ?? SX.WebCore.MvcApplication.SxMvcApplication.DefaultSiteName;
+                                if (!string.IsNullOrEmpty(logo))
                                 {
-                                    <img alt="@siteName" src="@Url.Action("Picture", "Pictures", new { id= logo.Value })" />
+                                    <img alt="@siteName" src="@Url.Action("Picture", "Pictures", new { id= logo })" />
                                 }
                                 else
                                 {
@@ -66,7 +66,7 @@
                 <div class="col-md-8">
                     @{
                         var banners = global_asax.BannerProvider.GetPageBanners(Request.RawUrl);
-                        var topBanner = banners.FirstOrDefault(x => x.Place == SX.WebCore.SxBanner.BannerPlace.Top);
+                        var topBanner = banners.FirstOrDefault(x => x.Place == SX.WebCore.DbModels.SxBanner.BannerPlace.Top);
                         if (topBanner != null)
                         {
                             <div class="top-body__banner-top">

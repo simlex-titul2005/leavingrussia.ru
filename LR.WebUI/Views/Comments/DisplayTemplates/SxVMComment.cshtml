@@ -2,21 +2,22 @@
 @model SxVMComment
 @{
     Layout = null;
-    var userId = User.Identity.GetUserId();
-    var isAuth = User.Identity.IsAuthenticated;
+    //var userId = User.Identity.GetUserId();
+    //var isAuth = User.Identity.IsAuthenticated;
+    var avatarId = Model.User?.AvatarId;
 }
 
 <div class="comment">
-    <div class="comment__author-img" style="background-image:url('@(Model.User.AvatarId.HasValue?Url.Action("Picture","Pictures", new { id=Model.User.AvatarId}):"/content/static/incognito.jpg")')"></div>
+    <div class="comment__author-img" style="background-image:url('@(avatarId!=null && avatarId.HasValue?Url.Action("Picture","Pictures", new { id=Model.User.AvatarId}):"/content/static/incognito.jpg")')"></div>
     <div class="comment__content">
         <div class="comment__author-title">
-            @if (Model.User.AvatarId.HasValue)
+            @if (avatarId!=null && avatarId.HasValue)
             {
-            <a href="#">@Model.User.NikName</a>
+                <a href="#">@(Model.User.NikName)</a>
             }
             else
             {
-                <span>@Model.User.NikName</span>
+                <span>@(Model.User?.NikName)</span>
             }
         </div>
         <div class="comment__date">

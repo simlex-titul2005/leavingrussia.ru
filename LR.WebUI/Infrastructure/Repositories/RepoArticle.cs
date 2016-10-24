@@ -109,7 +109,7 @@ ORDER BY dm.DateOfPublication DESC");
             }
         }
 
-        public override VMArticle[] GetPopular(byte mct, int? mid = null, int amount = 10)
+        public VMArticle[] GetPopular(byte mct, int? mid = null, int amount = 10)
         {
             var query = new StringBuilder();
             query.Append(@"SELECT TOP(@amount) dm.*, dmc.*, anu.*, dp.Id, dp.Caption

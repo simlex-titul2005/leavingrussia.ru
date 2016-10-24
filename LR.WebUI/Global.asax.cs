@@ -1,5 +1,4 @@
 ﻿using LR.WebUI.Infrastructure;
-using SX.WebCore.Managers;
 using SX.WebCore.MvcApplication;
 using SX.WebCore.ViewModels;
 using System;
@@ -12,17 +11,33 @@ namespace LR.WebUI
         {
             var args = new SxApplicationEventArgs
             {
+                DefaultSiteName = "leavingrussia.ru",
                 GetDbContextInstance = () => { return new DbContext(); },
                 WebApiConfigRegister = WebApiConfig.Register,
                 MapperConfigurationExpression = cfg => { AutoMapperConfig.Register(cfg); },
 
                 //routes
-                DefaultControllerNamespaces= new string[] { "LR.WebUI.Controllers" },
-                PreRouteAction= RouteConfig.PreRouteAction,
-                PostRouteAction=RouteConfig.PostRouteAction
+                DefaultControllerNamespaces = new string[] { "LR.WebUI.Controllers" },
+                PreRouteAction = RouteConfig.PreRouteAction,
+                PostRouteAction = RouteConfig.PostRouteAction,
+
+                ModelCoreTypeNameFunc = getMaterialName
             };
 
             base.Application_Start(sender, args);
+        }
+
+        private static string getMaterialName(byte mct)
+        {
+            switch(mct)
+            {
+                case 1:
+                    return "Статьи";
+                case 2:
+                    return "Новости";
+                default:
+                    return null;
+            }
         }
 
         private static readonly object _readingMaterialLocker = new object();
@@ -30,7 +45,8 @@ namespace LR.WebUI
         {
             get
             {
-                return CacheProvider.Get<SxVMMaterial>("CACHE_READING_MATERIAL");
+                var data=CacheProvider.Get<SxVMMaterial>("CACHE_READING_MATERIAL");
+                return data;
             }
             set
             {
