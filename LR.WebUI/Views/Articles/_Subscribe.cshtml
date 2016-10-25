@@ -1,8 +1,13 @@
 ﻿@model SxVMSubscriber
 
+@{ 
+    Layout = null;
+    var subscribeTitle = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["subscribe-title"]?.Value ?? "Подписка на рассылку новых сообщений в блогах, советы и фотографии";
+}
+
 <div class="subscribe">
     <div class="subscribe__intro">
-        Subscribe my Newsletter for new blog posts, tips & photos from my journey around the world.
+        @subscribeTitle
     </div>
 
     <form method="post" action="@Url.Action("Subscribe", "Articles")">

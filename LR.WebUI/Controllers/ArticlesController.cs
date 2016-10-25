@@ -4,7 +4,6 @@ using LR.WebUI.ViewModels;
 using SX.WebCore;
 using SX.WebCore.ViewModels;
 using LR.WebUI.Models;
-using System.Linq;
 using SX.WebCore.Repositories;
 
 namespace LR.WebUI.Controllers
@@ -23,19 +22,15 @@ namespace LR.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public override PartialViewResult Last(byte? mct = null, int amount = 5, int? mid=null)
-        {
-            var viewModel = Repo.Last(MvcApplication.ModelCoreTypeProvider[nameof(Article)], amount, mid);
-            return PartialView("_Last", viewModel);
-        }
-
-        [ChildActionOnly]
         public PartialViewResult Subscribe()
         {
             var viewModel = new SxVMSubscriber();
             return PartialView("_Subscribe", viewModel);
         }
 
+#if !DEBUG
+        [OutputCache(Duration=3600)]
+#endif
         [ChildActionOnly]
         public PartialViewResult ForHome(int amount=11)
         {
@@ -43,6 +38,9 @@ namespace LR.WebUI.Controllers
             return PartialView("_ForHome", viewModel);
         }
 
+#if !DEBUG
+        [OutputCache(Duration=3600)]
+#endif
         [ChildActionOnly]
         public PartialViewResult Gallery(int boxesCount=3)
         {

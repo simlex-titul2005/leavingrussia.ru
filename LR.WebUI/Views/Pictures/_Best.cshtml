@@ -2,12 +2,13 @@
 @{
     SxVMPicture item = null;
     var amount = (int)ViewBag.Amount;
+    var followTitle = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["folloe-instagram-title"]?.Value ?? "Мы в инстаграме";
 }
 
 @if (Model.Any() && Model.Length==amount)
 {
     <div class="best-pictures">
-        <h4 class="best-pictures-instagram"><span><span class="title">follow me on instagram</span></span></h4>
+        <h4 class="best-pictures-instagram"><span><span class="title">@followTitle</span></span></h4>
         <ul>
             @for (int i = 0; i < Model.Length; i++)
             {

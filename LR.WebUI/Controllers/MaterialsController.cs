@@ -23,7 +23,7 @@ namespace LR.WebUI.Controllers
             if (viewModel == null)
                 return new HttpNotFoundResult();
 
-            MvcApplication.ReadingMaterial = viewModel;
+            nowReadingMaterial = Mapper.Map<TViewModel, VMArticle>(viewModel);
 
             return View(viewModel);
         }
@@ -47,19 +47,58 @@ namespace LR.WebUI.Controllers
         [ChildActionOnly]
         public PartialViewResult ReadingMaterial()
         {
-            var viewModel = MvcApplication.ReadingMaterial;
-            if(viewModel==null)
+            var viewModel = nowReadingMaterial;
+            if (viewModel == null)
             {
-                viewModel = Repo.Last(mct: ModelCoreType, amount: 1, mid: null).FirstOrDefault();
-                if(viewModel==null)
-                {
-                    viewModel= new VMArticle() { Html = "Отсутсвуют данные БД" };
-                }
+                var last = Repo.Last(mct: ModelCoreType, amount: 1, mid: null).FirstOrDefault();
+                if (last == null)
+                    viewModel = new VMArticle() { Html = "Отсутсвуют данные БД" };
                 else
-                    MvcApplication.ReadingMaterial = viewModel;
+                {
+                    switch(last.ModelCoreType)
+                    {
+                        case 1:
+                            nowReadingMaterial = Mapper.Map<SxVMMaterial, VMArticle>(last);
+                            break;
+                        case 2:
+                            nowReadingMaterial = Mapper.Map<SxVMMaterial, VMNews>(last);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                    
             }
-                
-            return PartialView("_ReadingMaterial", viewModel);
+
+            return PartialView("_ReadingMaterial", nowReadingMaterial);
+        }
+        private static readonly object _readingMaterialLocker = new object();
+        private static VMMaterial nowReadingMaterial
+        {
+            get
+            {
+                var data = MvcApplication.CacheProvider.Get<VMMaterial>("CACHE_READING_MATERIAL");
+                return data;
+            }
+            set
+            {
+                lock (_readingMaterialLocker)
+                {
+                    MvcApplication.CacheProvider.Set("CACHE_READING_MATERIAL", value, 1);
+                }
+            }
+        }
+
+#if !DEBUG
+        [OutputCache(Duration=3600)]
+#endif
+        [ChildActionOnly]
+        public override PartialViewResult Last(byte? mct = null, int amount = 5, int? mid = null)
+        {
+            var viewModel = Repo.Last(null, amount, mid);
+            if (viewModel.Any())
+                viewModel = viewModel.Select(x => Mapper.Map<SxVMMaterial, VMMaterial>(x)).ToArray();
+            return PartialView("_Last", viewModel);
         }
     }
 }

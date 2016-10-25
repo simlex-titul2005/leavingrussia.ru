@@ -39,25 +39,5 @@ namespace LR.WebUI
                     return null;
             }
         }
-
-        private static readonly object _readingMaterialLocker = new object();
-        public static SxVMMaterial ReadingMaterial
-        {
-            get
-            {
-                var data=CacheProvider.Get<SxVMMaterial>("CACHE_READING_MATERIAL");
-                return data;
-            }
-            set
-            {
-                var data = CacheProvider.Get<SxVMMaterial>("CACHE_READING_MATERIAL");
-                if(data==null)
-                    lock(_readingMaterialLocker)
-                    {
-                        CacheProvider.Set("CACHE_READING_MATERIAL", value, 1);
-                    }
-            }
-        }
-
     }
 }

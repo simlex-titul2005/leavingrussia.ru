@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace LR.WebUI.ViewModels.Abstract
 {
-    public abstract class VMMaterial : SxVMMaterial
+    public class VMMaterial : SxVMMaterial
     {
         public override string GetUrl(UrlHelper urlHelper)
         {
