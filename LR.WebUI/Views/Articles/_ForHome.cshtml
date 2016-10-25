@@ -39,11 +39,12 @@
                         </div>
                     }
                     <div class="home-material__html">
-                        @(Html.Raw(i == 0 ? item.Html : (item.Foreword ?? item.GetForewordFromHtml(300))))
+                        @(Html.Raw(i == 0 ? item.Foreword ?? item.GetForewordFromHtml(600) : item.Foreword ?? item.GetForewordFromHtml(300)))
                     </div>
                     @if (i == 0)
                     {
                         <div class="home-material__read-btn">
+                            <br />
                             <a class="btn" href="@item.GetUrl(Url)">Подробнее</a>
                         </div>
                         <div class="home-material__meta">

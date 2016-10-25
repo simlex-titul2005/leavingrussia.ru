@@ -1,5 +1,6 @@
 ﻿using LR.WebUI.ViewModels;
 using LR.WebUI.ViewModels.Abstract;
+using SX.WebCore;
 using SX.WebCore.DbModels.Abstract;
 using SX.WebCore.MvcControllers;
 using SX.WebCore.ViewModels;
@@ -24,6 +25,10 @@ namespace LR.WebUI.Controllers
                 return new HttpNotFoundResult();
 
             nowReadingMaterial = Mapper.Map<TViewModel, VMArticle>(viewModel);
+
+            var html = viewModel.Html;
+            SxBBCodeParser.ReplaceImages(ref html, viewModel.Pictures);
+            viewModel.Html = html;
 
             return View(viewModel);
         }
