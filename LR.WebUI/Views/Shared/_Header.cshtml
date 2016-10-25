@@ -49,8 +49,8 @@
                     <div class="top-body__logo">
                         <a href="@Url.Action("Index", "Home")">
                             @{
-                                var logo = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.siteLogoPath]?.Value;
-                                var siteName = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.siteName]?.Value ?? SX.WebCore.MvcApplication.SxMvcApplication.DefaultSiteName;
+                                var logo = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.sitelogopath]?.Value;
+                                var siteName = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.sitename]?.Value ?? SX.WebCore.MvcApplication.SxMvcApplication.DefaultSiteName;
                                 if (!string.IsNullOrEmpty(logo))
                                 {
                                     <img alt="@siteName" src="@Url.Action("Picture", "Pictures", new { id= logo })" />

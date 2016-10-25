@@ -236,6 +236,7 @@
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\SeoController.cs" />
     <Compile Include="Controllers\SiteNetsController.cs" />
+    <Compile Include="Controllers\SiteSettingsController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -297,7 +298,9 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\SiteSettings\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

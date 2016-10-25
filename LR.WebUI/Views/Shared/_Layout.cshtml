@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(ViewBag.Title == null ? "leavingrussia.ru" : ViewBag.Title + " | leavingrussia.ru")</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="@(Url.Action("GetFavIcon","SiteSettings")+"?v=1")">
     
     <link href="@Url.Action("Css", "StaticContent", new { name="bootstrap"})" rel="stylesheet" />
     <link href="@Url.Action("Css", "StaticContent", new { name="font-awesome"})" rel="stylesheet" />
