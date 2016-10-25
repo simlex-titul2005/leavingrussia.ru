@@ -64,10 +64,6 @@
         <div class="col-md-5">
             <div class="form-group">
                 @Html.LabelFor(x => x.FrontPictureId, new { @class = "control-label" })
-                @if (Model.FrontPicture != null)
-                {
-                    <a style="margin-left:15px;" href="@Url.Action("Picture","Pictures", new { id=Model.FrontPicture.Id})" title="Показать картинку" data-lightbox="roadtrip" data-toggle="tooltip"><i class="fa fa-picture-o"></i></a>
-                }
                 @Html.EditorFor(x => x.FrontPictureId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите название материала" } })
                 @Html.ValidationMessageFor(x => x.FrontPictureId)
             </div>
