@@ -8,7 +8,7 @@ namespace LR.WebUI
         private static readonly string[] _defaultNamespaces = new string[] { "LR.WebUI.Controllers" };
         public static void PreRouteAction(RouteCollection routes)
         {
-            //routes.MapRoute(name: null, url: "Admin", defaults: new { controller = "Home", action = "Index", area = "Admin" }, namespaces: _defaultNamespaces);
+            routes.MapRoute(name: null, url: "Articles", defaults: new { controller = "Articles", action = "List", page=1 }, namespaces: _defaultNamespaces);
         }
 
         public static void PostRouteAction(RouteCollection routes)

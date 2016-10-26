@@ -5,6 +5,6 @@
         <a href="@Model.GetUrl(Url)"></a>
     </div>
     <div class="read-now-article__txt">
-        @(Model.Foreword ?? Model.GetForewordFromHtml(215))
+        @(Html.Raw(Model.Foreword ?? Model.GetForewordFromHtml(215)))
     </div>
 </div>

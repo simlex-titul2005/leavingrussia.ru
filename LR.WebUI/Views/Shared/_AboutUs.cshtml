@@ -1,11 +1,21 @@
-﻿<aside class="about-us">
+﻿@{ 
+    var ssp = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider;
+    var aboutUsImageId = ssp["about-us-img-id"];
+    Guid aboutUsImageGuid = Guid.Empty;
+    var aboutUsImageUrl = "/content/static/temp/about-widget.jpg";
+    if(Guid.TryParse(aboutUsImageId?.Value, out aboutUsImageGuid))
+    {
+        aboutUsImageUrl = Url.Action("Picture", "Pictures", new { id = aboutUsImageGuid });
+    }
+}
+<aside class="about-us">
     <h4 class="green-header"><span class="green-header__arrow">О нас</span></h4>
-    <div class="about-us__img" style="background-image:url('/content/static/temp/about-widget.jpg');"></div>
+    <div class="about-us__img" style="background-image:url('@aboutUsImageUrl');"></div>
     <div class="about-us__title">
-        <h2>@(SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.sitename]?.Value)</h2>
+        <h2>@(ssp["sitename"]?.Value)</h2>
     </div>
     <div class="about-us__txt">
-        @Html.Raw(SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider[SX.WebCore.Resources.Settings.sitedesc]?.Value)
+        @Html.Raw(ssp["sitedesc"]?.Value)
     </div>
     <br />
 </aside>

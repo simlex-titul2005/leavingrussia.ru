@@ -48,7 +48,7 @@
 
                         <div class="list-material__title">
                             <h2>
-                                <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Title</a>
+                                <a href="@item.GetUrl(Url)">@item.Title</a>
                             </h2>
                         </div>
 
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="list-material__fwd">
-                            @item.GetForewordFromHtml(600)
+                            @(Html.Raw(item.Foreword ?? item.GetForewordFromHtml(600)))
                         </div>
 
                         <div class="list-material__read-btn">
@@ -102,7 +102,7 @@
 
                         <div class="list-material__title">
                             <h2>
-                                <a href="@Url.Action("List", "Articles", new { cat=item.Category.Id})">@item.Title</a>
+                                <a href="@item.GetUrl(Url)">@item.Title</a>
                             </h2>
                         </div>
 
@@ -111,7 +111,7 @@
                         </div>
 
                         <div class="list-material__fwd">
-                            @item.GetForewordFromHtml(300)
+                            @(Html.Raw(item.Foreword ?? item.GetForewordFromHtml(300)))
                         </div>
                     </article>
                 </div>

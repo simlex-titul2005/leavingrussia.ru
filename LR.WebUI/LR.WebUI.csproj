@@ -202,6 +202,7 @@
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ErrorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GraphicsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogsController.cs" />
@@ -299,6 +300,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Errors\" />
     <Folder Include="Views\SiteSettings\" />
   </ItemGroup>
   <PropertyGroup>
