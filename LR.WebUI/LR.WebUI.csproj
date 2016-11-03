@@ -194,8 +194,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AffiliateLinksController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AnalizatorController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AnalizatorSessionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannedUrlsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannerGroupsController.cs" />

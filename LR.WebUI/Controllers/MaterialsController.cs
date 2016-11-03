@@ -26,9 +26,7 @@ namespace LR.WebUI.Controllers
 
             nowReadingMaterial = Mapper.Map<TViewModel, VMArticle>(viewModel);
 
-            var html = viewModel.Html;
-            SxBBCodeParser.ReplaceImages(ref html, viewModel.Pictures);
-            viewModel.Html = html;
+            SxBBCodeParser.Replace(nowReadingMaterial);
 
             return View(viewModel);
         }
